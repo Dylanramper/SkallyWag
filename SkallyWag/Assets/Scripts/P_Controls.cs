@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P_Move : MonoBehaviour
+public class P_Controls : MonoBehaviour
 {
     public GameObject player;
     private Vector2 screenBounds;
@@ -11,12 +11,43 @@ public class P_Move : MonoBehaviour
     private float shipWidth;
     private float shipHeight;
 
+    //Variables for object pooling bullets
+    public Dictionary<string, Queue<GameObject>> bulletPool;
+    public GameObject BulletPoint;
+
+    [System.Serializable]
+    public class Pool
+    {
+        public string name;
+        public GameObject prefab;
+        public int poolSize;
+    }
+    public List<Pool> pools;
+
     void Start()
     {
         //Getting Height and Width of screenPos and W/H of Player.
         screenBounds = mainCam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCam.transform.position.z));
         shipWidth = transform.GetComponent<BoxCollider2D>().bounds.extents.x;
         shipHeight = transform.GetComponent<BoxCollider2D>().bounds.extents.y;
+
+        //instancing bulletpool
+        bulletPool = new Dictionary<string, Queue<GameObject>>();
+
+        //store a certain amount of bullets in pool
+        foreach (Pool bullet in pools)
+        {
+            Queue<GameObject> B_Pool = new Queue<GameObject>();
+
+            for (int i = 0; i < bullet.poolSize; i++)
+            {
+                GameObject objPool = Instantiate(bullet.prefab);
+                objPool.SetActive(false);
+                B_Pool.Enqueue(objPool);
+            }
+
+            bulletPool.Add(bullet.name, B_Pool);
+        }
     }
     
 
@@ -30,6 +61,7 @@ public class P_Move : MonoBehaviour
         transform.position = cameraPos;
 
         Controls();
+        Fire();
     }
 
 
@@ -52,5 +84,26 @@ public class P_Move : MonoBehaviour
         {
             player.transform.Translate(new Vector2(10 * Time.deltaTime, 0));
         }
+    }
+
+    //Calling from the object pool
+    void Fire()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            SpawnBullets("CannonBall", BulletPoint.transform.position);
+        }
+
+    }
+
+    public GameObject SpawnBullets(string name, Vector2 position)
+    {
+        GameObject Objects = bulletPool[name].Dequeue();
+
+        Objects.SetActive(true);
+        Objects.transform.position = position;
+
+        bulletPool[name].Enqueue(Objects);
+        return Objects;
     }
 }
