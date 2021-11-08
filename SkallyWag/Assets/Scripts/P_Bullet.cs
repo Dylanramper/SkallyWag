@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class P_Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    float bulletSpeed;
+
+    private void Start()
     {
-        
+        bulletSpeed = 7.5f;
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(new Vector2(0, bulletSpeed * Time.deltaTime));
+
+        if(transform.position.y >= 6.4f)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
