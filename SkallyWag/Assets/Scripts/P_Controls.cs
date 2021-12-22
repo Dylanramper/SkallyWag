@@ -68,14 +68,6 @@ public class P_Controls : MonoBehaviour
     //Controls for Movement
     public void Controls()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            player.transform.Translate(new Vector2(0, 10 * Time.deltaTime));   
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            player.transform.Translate(new Vector2(0, -10 * Time.deltaTime));
-        }
         if (Input.GetKey(KeyCode.A))
         {
             player.transform.Translate(new Vector2(-10 * Time.deltaTime, 0));
