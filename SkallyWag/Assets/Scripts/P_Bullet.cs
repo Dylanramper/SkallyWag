@@ -22,12 +22,4 @@ public class P_Bullet : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == ("Enemy"))
-        {
-            Debug.Log("Hit");
-        }
-    }
 }
