@@ -20,6 +20,7 @@ public class E_Spawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         //instancing Enemypool
         enemyPool = new Dictionary<string, Queue<GameObject>>();
 
@@ -42,7 +43,7 @@ public class E_Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnEnemies("Enemy", EnemySpawn.transform.position);
+        StartCoroutine(ExecuteAfterTime(10));
     }
 
     //Calling from enemypool
@@ -55,5 +56,12 @@ public class E_Spawn : MonoBehaviour
 
         enemyPool[name].Enqueue(Objects);
         return Objects;
+    }
+
+    IEnumerator ExecuteAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2(Random.Range(-8.67f, 8.01f), 5.75f));
     }
 }
