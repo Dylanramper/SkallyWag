@@ -27,7 +27,7 @@ public class P_Bullet : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

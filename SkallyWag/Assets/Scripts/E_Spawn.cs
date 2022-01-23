@@ -8,6 +8,9 @@ public class E_Spawn : MonoBehaviour
     public Dictionary<string, Queue<GameObject>> enemyPool;
     public GameObject EnemySpawn;
 
+    //Timer Variables
+    public float timer = 3.0f;
+
     [System.Serializable]
     public class Pool
     {
@@ -16,11 +19,11 @@ public class E_Spawn : MonoBehaviour
         public int poolSize;
     }
     public List<Pool> pools;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
         //instancing Enemypool
         enemyPool = new Dictionary<string, Queue<GameObject>>();
 
@@ -43,7 +46,12 @@ public class E_Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(ExecuteAfterTime(10));
+        //countdown to next enemy spawn
+        timer -= Time.deltaTime;
+        if(timer <= 0)
+        {
+            EndTimer();
+        }
     }
 
     //Calling from enemypool
@@ -58,10 +66,12 @@ public class E_Spawn : MonoBehaviour
         return Objects;
     }
 
-    IEnumerator ExecuteAfterTime(float time)
+    //function for spawning enemies at random spawnpoints and reseting the timer
+    void EndTimer()
     {
-        yield return new WaitForSeconds(time);
-
-        SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2(Random.Range(-8.67f, 8.01f), 5.75f));
+        float spawnPointX = Random.Range(-8.67f, 8.01f);
+        float spawnPointY = 5.75f;
+        SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2(spawnPointX, spawnPointY));
+        timer = 3.0f;
     }
 }
