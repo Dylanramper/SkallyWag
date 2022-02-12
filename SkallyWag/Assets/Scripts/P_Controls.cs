@@ -11,6 +11,9 @@ public class P_Controls : MonoBehaviour
     private float shipWidth;
     private float shipHeight;
 
+    private int pHealth;
+    public bool isAlive = true;
+
     //Variables for object pooling bullets
     public Dictionary<string, Queue<GameObject>> bulletPool;
     public GameObject BulletPoint;
@@ -26,6 +29,8 @@ public class P_Controls : MonoBehaviour
 
     void Start()
     {
+        pHealth = 3;
+
         //Getting Height and Width of screenPos and W/H of Player.
         screenBounds = mainCam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCam.transform.position.z));
         shipWidth = transform.GetComponent<BoxCollider2D>().bounds.extents.x;
@@ -62,6 +67,7 @@ public class P_Controls : MonoBehaviour
 
         Controls();
         Fire();
+        Death();
     }
 
 
@@ -96,6 +102,15 @@ public class P_Controls : MonoBehaviour
 
     }
 
+    void Death()
+    {
+        if (pHealth == 0)
+        {
+            isAlive = false;
+        }
+    }
+
+    //Sete Bullet location to the player's point where it will spawn
     public GameObject SpawnBullets(string name, Vector2 position)
     {
         GameObject Objects = bulletPool[name].Dequeue();
@@ -105,5 +120,16 @@ public class P_Controls : MonoBehaviour
 
         bulletPool[name].Enqueue(Objects);
         return Objects;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            pHealth = pHealth - 1;
+
+
+            Debug.Log(pHealth);
+        }
     }
 }
