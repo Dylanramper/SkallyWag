@@ -615,7 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScript: {fileID: 1170614138501788349, guid: 7fa741d748215d6458b2bc87caab666e, type: 3}
-  enemyScript: {fileID: 0}
+  enemyScript: {fileID: 7054755396103768647, guid: 85864ae410e59de4086b9bdaffd2dcda, type: 3}
   isAlive: 1
 --- !u!4 &2000385561
 Transform:

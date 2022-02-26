@@ -17,9 +17,17 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    private void Update()
+    private void Start()
     {
 
+    }
+
+    private void Update()
+    {
+        if(playerScript.GetComponent<P_Controls>().isAlive == false)
+        {
+            Debug.Log("I'm supposed to be dead");
+        }
     }
 
     //PlayBtn to load the gameScene
