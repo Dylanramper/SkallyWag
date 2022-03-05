@@ -11,7 +11,7 @@ public class P_Controls : MonoBehaviour
     private float shipWidth;
     private float shipHeight;
 
-    private int pHealth;
+    public int pHealth;
     public bool isAlive = true;
 
     //Variables for object pooling bullets
@@ -104,10 +104,6 @@ public class P_Controls : MonoBehaviour
 
     void Death()
     {
-        if (pHealth == 0)
-        {
-            isAlive = false;
-        }
     }
 
     //Sete Bullet location to the player's point where it will spawn

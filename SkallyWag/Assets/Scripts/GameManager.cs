@@ -24,9 +24,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(playerScript.GetComponent<P_Controls>().isAlive == false)
+        if (playerScript.isAlive == false)
         {
-            Debug.Log("I'm supposed to be dead");
+            Debug.Log("Dead");
+        }
+
+        if (playerScript.pHealth == 0)
+        {
+            isAlive = false;
         }
     }
 
