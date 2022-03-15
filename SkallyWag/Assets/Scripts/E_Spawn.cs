@@ -24,6 +24,8 @@ public class E_Spawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
         //instancing Enemypool
         enemyPool = new Dictionary<string, Queue<GameObject>>();
 

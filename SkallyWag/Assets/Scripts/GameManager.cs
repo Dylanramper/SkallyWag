@@ -9,8 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] P_Controls playerScript;
     [SerializeField] E_Bhvr enemyScript;
-
-    public bool isAlive = true;
+    public int playerHealth;
 
     private void Awake()
     {
@@ -24,20 +23,19 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerScript.isAlive == false)
-        {
-            Debug.Log("Dead");
-        }
 
-        if (playerScript.pHealth == 0)
-        {
-            isAlive = false;
-        }
+
     }
 
     //PlayBtn to load the gameScene
     public void PlayBtn()
     {
         SceneManager.LoadScene(sceneBuildIndex: 1);
+    }
+
+    //Killing the player
+    public void Death()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 2);
     }
 }

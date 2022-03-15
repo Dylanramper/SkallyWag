@@ -127,8 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8f16dd1a50f9448b00c3c08717171c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 6566224176318039115, guid: 90da180c3520ef84e87d4d6c05267204, type: 3}
   player: {fileID: 1170614138501788320}
   mainCam: {fileID: 0}
+  pHealth: 3
   isAlive: 1
   BulletPoint: {fileID: 1170614137423536803}
   pools:

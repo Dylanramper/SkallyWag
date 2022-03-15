@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class P_Controls : MonoBehaviour
 {
+    public GameManager gm;
+
     public GameObject player;
     private Vector2 screenBounds;
     public Camera mainCam;
 
     private float shipWidth;
     private float shipHeight;
-
-    public int pHealth;
-    public bool isAlive = true;
 
     //Variables for object pooling bullets
     public Dictionary<string, Queue<GameObject>> bulletPool;
@@ -29,7 +28,8 @@ public class P_Controls : MonoBehaviour
 
     void Start()
     {
-        pHealth = 3;
+        //Set PlayerHealth to 3 lives
+        gm.playerHealth = 3;
 
         //Getting Height and Width of screenPos and W/H of Player.
         screenBounds = mainCam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCam.transform.position.z));
@@ -67,7 +67,12 @@ public class P_Controls : MonoBehaviour
 
         Controls();
         Fire();
-        Death();
+
+        //If playerHealth is <= 0 Run Death() function
+        if(gm.playerHealth <= 0)
+        {
+            gm.Death();
+        }
     }
 
 
@@ -102,10 +107,6 @@ public class P_Controls : MonoBehaviour
 
     }
 
-    void Death()
-    {
-    }
-
     //Sete Bullet location to the player's point where it will spawn
     public GameObject SpawnBullets(string name, Vector2 position)
     {
@@ -118,14 +119,12 @@ public class P_Controls : MonoBehaviour
         return Objects;
     }
 
+    //Damage to player from enemies
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            pHealth = pHealth - 1;
-
-
-            Debug.Log(pHealth);
+            gm.playerHealth -= 1;
         }
     }
 }
