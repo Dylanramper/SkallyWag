@@ -38,4 +38,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneBuildIndex: 2);
     }
+
+    //Back to main menu
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 0);
+    }
 }
