@@ -16,17 +16,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    private void Start()
-    {
-
-    }
-
-    private void Update()
-    {
-
-
-    }
-
     //PlayBtn to load the gameScene
     public void PlayBtn()
     {

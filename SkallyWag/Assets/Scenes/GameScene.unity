@@ -251,10 +251,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemySpawn: {fileID: 7054755396103768642, guid: 85864ae410e59de4086b9bdaffd2dcda, type: 3}
   timer: 3
+  secondTimer: 0
+  gameTimer: 0
   pools:
   - name: Enemy
     prefab: {fileID: 7054755396103768642, guid: 85864ae410e59de4086b9bdaffd2dcda, type: 3}
-    poolSize: 3
+    poolSize: 8
 --- !u!1001 &1170614137687181997
 PrefabInstance:
   m_ObjectHideFlags: 0

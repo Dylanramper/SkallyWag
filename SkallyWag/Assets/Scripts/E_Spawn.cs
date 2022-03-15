@@ -8,8 +8,14 @@ public class E_Spawn : MonoBehaviour
     public Dictionary<string, Queue<GameObject>> enemyPool;
     public GameObject EnemySpawn;
 
+    //Variables to spawn enemies at locations
+    float spawnPointX;
+    float spawnPointY = 5.75f;
+
     //Timer Variables
     public float timer = 3.0f;
+    public float secondTimer;
+    public float gameTimer = 0f;
 
     [System.Serializable]
     public class Pool
@@ -24,7 +30,7 @@ public class E_Spawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        secondTimer = 3.0f;
 
         //instancing Enemypool
         enemyPool = new Dictionary<string, Queue<GameObject>>();
@@ -48,12 +54,16 @@ public class E_Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        spawnPointX = Random.Range(-8.67f, 8.01f);
+
         //countdown to next enemy spawn
         timer -= Time.deltaTime;
         if(timer <= 0)
         {
             EndTimer();
         }
+
+        Timers();
     }
 
     //Calling from enemypool
@@ -71,9 +81,41 @@ public class E_Spawn : MonoBehaviour
     //function for spawning enemies at random spawnpoints and reseting the timer
     void EndTimer()
     {
-        float spawnPointX = Random.Range(-8.67f, 8.01f);
-        float spawnPointY = 5.75f;
         SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2(spawnPointX, spawnPointY));
-        timer = 3.0f;
+        timer = secondTimer;
+
+        //spawn addition enemy after 40 seconds
+        if(gameTimer >= 40.0f)
+        {
+            GameObject SpawnEnemies(string name, Vector2 position)
+            {
+                GameObject Objects = enemyPool[name].Dequeue();
+
+                Objects.SetActive(true);
+                Objects.transform.position = position;
+
+                enemyPool[name].Enqueue(Objects);
+                return Objects;
+            }
+            SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2(Random.Range(-8.67f, 8.01f), spawnPointY));
+        }
+    }
+
+    //slowly speed up the timer every 10 seconds
+    void Timers()
+    {
+        gameTimer += Time.deltaTime;
+        if (gameTimer >= 10.0f)
+        {
+            secondTimer = 2.5f;
+        }
+        if (gameTimer >= 20.0f)
+        {
+            secondTimer = 2.0f;
+        }
+        if (gameTimer >= 30.0f)
+        {
+            secondTimer = 1.0f;
+        }
     }
 }
