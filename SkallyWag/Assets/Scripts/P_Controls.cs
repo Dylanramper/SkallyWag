@@ -64,8 +64,7 @@ public class P_Controls : MonoBehaviour
         cameraPos.y = Mathf.Clamp(cameraPos.y, screenBounds.y * -1 + shipHeight, screenBounds.y - shipHeight);
 
         transform.position = cameraPos;
-
-        Controls();
+        
         Fire();
 
         //If playerHealth is <= 0 Run Death() function
@@ -75,9 +74,8 @@ public class P_Controls : MonoBehaviour
         }
     }
 
-
     //Controls for Movement
-    public void Controls()
+   /* public void Controls()
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -95,7 +93,7 @@ public class P_Controls : MonoBehaviour
         {
             player.transform.Translate(new Vector2(10 * Time.deltaTime, 0));
         }
-    }
+    }*/
 
     //Calling from the object pool
     void Fire()

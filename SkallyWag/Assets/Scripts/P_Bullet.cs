@@ -17,7 +17,7 @@ public class P_Bullet : MonoBehaviour
     {
         transform.Translate(new Vector2(0, bulletSpeed * Time.deltaTime));
 
-        if(transform.position.y >= 6.4f)
+        if(transform.position.y >= 8.4f)
         {
             gameObject.SetActive(false);
         }

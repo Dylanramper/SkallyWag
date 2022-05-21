@@ -10,7 +10,7 @@ public class E_Spawn : MonoBehaviour
 
     //Variables to spawn enemies at locations
     float spawnPointX;
-    float spawnPointY = 5.75f;
+    float spawnPointY = 9.5f;
 
     //Timer Variables
     public float timer = 3.0f;
@@ -54,7 +54,7 @@ public class E_Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawnPointX = Random.Range(-8.67f, 8.01f);
+        spawnPointX = Random.Range(-3.46f, 3.46f);
 
         //countdown to next enemy spawn
         timer -= Time.deltaTime;
@@ -97,7 +97,7 @@ public class E_Spawn : MonoBehaviour
                 enemyPool[name].Enqueue(Objects);
                 return Objects;
             }
-            SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2(Random.Range(-8.67f, 8.01f), spawnPointY));
+            SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2(Random.Range(-3.46f, 3.46f), spawnPointY));
         }
     }
 
