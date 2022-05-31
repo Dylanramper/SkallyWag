@@ -65,7 +65,7 @@ public class P_Controls : MonoBehaviour
 
         transform.position = cameraPos;
         
-        Fire();
+        //Fire();
 
         //If playerHealth is <= 0 Run Death() function
         if(gm.playerHealth <= 0)
@@ -96,13 +96,9 @@ public class P_Controls : MonoBehaviour
     }*/
 
     //Calling from the object pool
-    void Fire()
+    public void Fire()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
             SpawnBullets("CannonBall", BulletPoint.transform.position);
-        }
-
     }
 
     //Sete Bullet location to the player's point where it will spawn

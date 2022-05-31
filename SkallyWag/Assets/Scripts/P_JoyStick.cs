@@ -4,26 +4,16 @@ using UnityEngine;
 
 public class P_JoyStick : MonoBehaviour
 {
-    public Transform player;
-
-    public float speed = 7.0f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public FixedJoystick moveJoystick;
+    public float moveSpeed = 7.0f;
 
     // Update is called once per frame
     void Update()
     {
-        moveCharacter(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-    }
-
-
-    void moveCharacter(Vector2 direction)
-    {
-        player.transform.Translate(direction * speed * Time.deltaTime);
+        float hoz = moveJoystick.Horizontal;
+        float ver = moveJoystick.Vertical;
+        Vector2 dir = new Vector2(hoz, ver).normalized;
+        transform.Translate(dir * moveSpeed * Time.deltaTime, Space.World);
     }
 
 }
