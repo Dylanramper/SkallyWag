@@ -72,10 +72,11 @@ public class P_Controls : MonoBehaviour
         {
             gm.Death();
         }
+        Controls();
     }
 
     //Controls for Movement
-   /* public void Controls()
+    public void Controls()
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -93,7 +94,7 @@ public class P_Controls : MonoBehaviour
         {
             player.transform.Translate(new Vector2(10 * Time.deltaTime, 0));
         }
-    }*/
+    }
 
     //Calling from the object pool
     public void Fire()
