@@ -54,7 +54,7 @@ public class E_Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawnPointX = Random.Range(-3.46f, 3.46f);
+        spawnPointX = Random.Range(-3.44f, 3.48f);
 
         //countdown to next enemy spawn
         timer -= Time.deltaTime;
@@ -81,7 +81,7 @@ public class E_Spawn : MonoBehaviour
     //function for spawning enemies at random spawnpoints and reseting the timer
     void EndTimer()
     {
-        SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2(spawnPointX, spawnPointY));
+        SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2 (spawnPointX, spawnPointY));
         timer = secondTimer;
 
         //spawn addition enemy after 40 seconds
@@ -97,7 +97,7 @@ public class E_Spawn : MonoBehaviour
                 enemyPool[name].Enqueue(Objects);
                 return Objects;
             }
-            SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2(Random.Range(-3.46f, 3.46f), spawnPointY));
+            SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2(spawnPointX, spawnPointY));
         }
     }
 
