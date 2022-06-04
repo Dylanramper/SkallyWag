@@ -653,8 +653,10 @@ MonoBehaviour:
   pools:
   - name: Enemy
     prefab: {fileID: 7054755396103768642, guid: 85864ae410e59de4086b9bdaffd2dcda, type: 3}
-    prefab2: {fileID: 3725546754232124667, guid: 04f9aa7701743b542b7301bed65bb84a, type: 3}
-    poolSize: 8
+    poolSize: 5
+  - name: Enemy2
+    prefab: {fileID: 3725546754232124667, guid: 04f9aa7701743b542b7301bed65bb84a, type: 3}
+    poolSize: 5
 --- !u!1 &1786166022
 GameObject:
   m_ObjectHideFlags: 0

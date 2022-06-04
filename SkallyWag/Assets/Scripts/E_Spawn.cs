@@ -10,6 +10,7 @@ public class E_Spawn : MonoBehaviour
 
     //Variables to spawn enemies at locations
     float spawnPointX;
+    float spawnPointX2;
     float spawnPointY = 9.5f;
 
     //Timer Variables
@@ -22,6 +23,7 @@ public class E_Spawn : MonoBehaviour
     {
         public string name;
         public GameObject prefab;
+        public GameObject prefab2;
         public int poolSize;
     }
     public List<Pool> pools;
@@ -55,6 +57,7 @@ public class E_Spawn : MonoBehaviour
     void Update()
     {
         spawnPointX = Random.Range(-3.44f, 3.48f);
+        spawnPointX2 = Random.Range(-3.44f, 3.48f);
 
         //countdown to next enemy spawn
         timer -= Time.deltaTime;
@@ -81,9 +84,9 @@ public class E_Spawn : MonoBehaviour
     //function for spawning enemies at random spawnpoints and reseting the timer
     void EndTimer()
     {
-        SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2 (spawnPointX, spawnPointY));
+        SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2(spawnPointX, spawnPointY));
+        SpawnEnemies("Enemy2", EnemySpawn.transform.position = new Vector2(spawnPointX2, spawnPointY));
         timer = secondTimer;
-
         //spawn addition enemy after 40 seconds
         if(gameTimer >= 40.0f)
         {
@@ -98,6 +101,7 @@ public class E_Spawn : MonoBehaviour
                 return Objects;
             }
             SpawnEnemies("Enemy", EnemySpawn.transform.position = new Vector2(spawnPointX, spawnPointY));
+            SpawnEnemies("Enemy2", EnemySpawn.transform.position = new Vector2(spawnPointX2, spawnPointY));
         }
     }
 
