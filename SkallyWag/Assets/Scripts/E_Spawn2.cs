@@ -15,11 +15,7 @@ public class E_Spawn2 : MonoBehaviour
 
     private void Start()
     {
-        spawnPointX = Random.Range(-3.44f, 3.48f);
         secondTimer = 3.0f;
-        RowB.SetActive(false);
-        Brig.SetActive(false);
-        Gal.SetActive(false);
     }
 
 
@@ -32,6 +28,7 @@ public class E_Spawn2 : MonoBehaviour
             SpawnEnemies();
             timer = secondTimer;
             spawnNum = Random.Range(0, 3);
+            spawnPointX = Random.Range(-3.44f, 3.48f);
         }
 
         Timers();
@@ -42,19 +39,15 @@ public class E_Spawn2 : MonoBehaviour
     {
         if(spawnNum == 0)
         {
-            RowB.SetActive(true);
-            RowB.transform.position = new Vector2(spawnPointX, spawnPointY);
-            Debug.Log("Spawn");
+            Instantiate(RowB, new Vector2(spawnPointX, spawnPointY), Quaternion.identity);
         }
         else if(spawnNum == 1)
         {
-            Brig.SetActive(true);
-            Brig.transform.position = new Vector2(spawnPointX, spawnPointY);
+            Instantiate(Brig, new Vector2(spawnPointX, spawnPointY), Quaternion.identity);
         }
         else if(spawnNum == 2)
         {
-            Gal.SetActive(true);
-            Gal.transform.position = new Vector2(spawnPointX, spawnPointY);
+            Instantiate(Gal, new Vector2(spawnPointX, spawnPointY), Quaternion.identity);
         }
     }
 

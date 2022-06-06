@@ -6,7 +6,6 @@ public class E_Bhvr : MonoBehaviour
 {
     float moveSpeed = 5.0f;
     float killZ = -8.48f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,15 +20,16 @@ public class E_Bhvr : MonoBehaviour
 
         if(gameObject.transform.position.y <= killZ) 
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
+
     //killing enemy when hit by bullet
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }
