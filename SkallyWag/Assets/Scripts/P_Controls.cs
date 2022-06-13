@@ -10,6 +10,10 @@ public class P_Controls : MonoBehaviour
     private Vector2 screenBounds;
     public Camera mainCam;
 
+    public GameObject health1;
+    public GameObject health2;
+    public GameObject health3;
+
     private float shipWidth;
     private float shipHeight;
 
@@ -64,8 +68,15 @@ public class P_Controls : MonoBehaviour
         cameraPos.y = Mathf.Clamp(cameraPos.y, screenBounds.y * -1 + shipHeight, screenBounds.y - shipHeight);
 
         transform.position = cameraPos;
-        
-        //Fire();
+
+        if(gm.playerHealth == 2)
+        {
+            health3.SetActive(false);
+        }
+        else if(gm.playerHealth == 1)
+        {
+            health2.SetActive(false);
+        }
 
         //If playerHealth is <= 0 Run Death() function
         if(gm.playerHealth <= 0)
@@ -115,10 +126,6 @@ public class P_Controls : MonoBehaviour
     }
 
     //Damage to player from enemies
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")

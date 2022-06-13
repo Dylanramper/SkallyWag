@@ -9,13 +9,20 @@ public class E_Spawn2 : MonoBehaviour
     float spawnPointX;
     float spawnPointY = 9.5f;
 
+
     public float timer = 3.0f;
     public float secondTimer;
     public float gameTimer = 0f;
 
+
+    private Vector2 screenBounds;
+    public Camera mainCam;
+
     private void Start()
     {
         secondTimer = 3.0f;
+
+        screenBounds = mainCam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCam.transform.position.z));
     }
 
 
@@ -40,14 +47,26 @@ public class E_Spawn2 : MonoBehaviour
         if(spawnNum == 0)
         {
             Instantiate(RowB, new Vector2(spawnPointX, spawnPointY), Quaternion.identity);
+            if(gameTimer >= 40)
+            {
+                Instantiate(RowB, new Vector2(Random.Range(-3.44f, 3.48f), spawnPointY), Quaternion.identity);
+            }
         }
         else if(spawnNum == 1)
         {
             Instantiate(Brig, new Vector2(spawnPointX, spawnPointY), Quaternion.identity);
+            if (gameTimer >= 40)
+            {
+                Instantiate(RowB, new Vector2(Random.Range(-3.44f, 3.48f), spawnPointY), Quaternion.identity);
+            }
         }
         else if(spawnNum == 2)
         {
             Instantiate(Gal, new Vector2(spawnPointX, spawnPointY), Quaternion.identity);
+            if (gameTimer >= 40)
+            {
+                Instantiate(RowB, new Vector2(Random.Range(-3.44f, 3.48f), spawnPointY), Quaternion.identity);
+            }
         }
     }
 
