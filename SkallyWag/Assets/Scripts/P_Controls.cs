@@ -91,19 +91,19 @@ public class P_Controls : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            player.transform.Translate(new Vector2(0, 10 * Time.deltaTime));
+            player.transform.Translate(new Vector2(0, 6 * Time.deltaTime));
         }
         if (Input.GetKey(KeyCode.S))
         {
-            player.transform.Translate(new Vector2(0, -10 * Time.deltaTime));
+            player.transform.Translate(new Vector2(0, -6 * Time.deltaTime));
         }
         if (Input.GetKey(KeyCode.A))
         {
-            player.transform.Translate(new Vector2(-10 * Time.deltaTime, 0));
+            player.transform.Translate(new Vector2(-6 * Time.deltaTime, 0));
         }
         if (Input.GetKey(KeyCode.D))
         {
-            player.transform.Translate(new Vector2(10 * Time.deltaTime, 0));
+            player.transform.Translate(new Vector2(6 * Time.deltaTime, 0));
         }
     }
 
