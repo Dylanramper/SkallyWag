@@ -15,6 +15,7 @@ public class P_Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //moving the bullet
         transform.Translate(new Vector2(0, bulletSpeed * Time.deltaTime));
 
         if(transform.position.y >= 8.4f)
@@ -22,7 +23,7 @@ public class P_Bullet : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-
+    //when the bullet hits an enemy; destroy the bullet
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")

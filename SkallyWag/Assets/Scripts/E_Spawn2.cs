@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class E_Spawn2 : MonoBehaviour
 {
+    //Variables for enemies and spawn points
     public GameObject RowB, Brig, Gal;
     public int spawnNum;
     float spawnPointX;
     float spawnPointY = 9.5f;
 
-
+    //Variables for timers
     public float timer = 3.0f;
     public float secondTimer;
     public float gameTimer = 0f;
 
-
+    //Variables for setting screen bounds
     private Vector2 screenBounds;
     public Camera mainCam;
 
@@ -22,13 +23,16 @@ public class E_Spawn2 : MonoBehaviour
     {
         secondTimer = 3.0f;
 
+        //Set screen bounds to the main camera
         screenBounds = mainCam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCam.transform.position.z));
     }
 
 
     void Update()
     {
-
+        //Spawning an enemy whenever 'timer' == 0
+        //Selecting which enemy to spawn
+        //Spawning selected enemy at a random point at the top of the screen
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
@@ -41,7 +45,7 @@ public class E_Spawn2 : MonoBehaviour
         Timers();
     }
 
-
+    //Function for selecting an enemy and spawning them at a certain point on the screen
     void SpawnEnemies()
     {
         if(spawnNum == 0)
@@ -70,7 +74,7 @@ public class E_Spawn2 : MonoBehaviour
         }
     }
 
-
+    //These are the timers used to spawning enemies and speeding up the spawn rate
     void Timers()
     {
         gameTimer += Time.deltaTime;

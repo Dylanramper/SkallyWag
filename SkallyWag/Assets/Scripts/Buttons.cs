@@ -9,6 +9,7 @@ public class Buttons : MonoBehaviour
     public GameObject GameMenu;
     public GameObject PauseMenu;
 
+    //Pause button
     public void pauseMenu()
     {
         Time.timeScale = 0;
@@ -16,6 +17,7 @@ public class Buttons : MonoBehaviour
         PauseMenu.SetActive(true);
     } 
 
+    //Resume button
     public void ResumeGame()
     {
         PauseMenu.SetActive(false);
@@ -23,8 +25,10 @@ public class Buttons : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    //Quit button
     public void Quit()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneBuildIndex: 0);
     }
 }
