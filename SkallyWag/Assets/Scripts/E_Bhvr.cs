@@ -20,11 +20,11 @@ public class E_Bhvr : MonoBehaviour
     }
 
     //killing enemy when hit by bullet
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
             Destroy(gameObject);
         }
-    }
+    } */
 }
