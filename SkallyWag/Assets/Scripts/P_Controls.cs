@@ -21,6 +21,8 @@ public class P_Controls : MonoBehaviour
     public Dictionary<string, Queue<GameObject>> bulletPool;
     public GameObject BulletPoint;
 
+    public float fireRate = 0f;
+
     [System.Serializable]
     public class Pool
     {
@@ -84,6 +86,11 @@ public class P_Controls : MonoBehaviour
             gm.Death();
         }
         Controls();
+        fireRate -= Time.deltaTime;
+        if(fireRate <= 0)
+        {
+            fireRate = 0;
+        }
     }
 
     //Controls for Movement
@@ -105,12 +112,21 @@ public class P_Controls : MonoBehaviour
         {
             player.transform.Translate(new Vector2(6 * Time.deltaTime, 0));
         }
+        if (Input.GetKeyDown(KeyCode.Space) && fireRate == 0f)
+        {
+            fireRate = 0.5f;
+            Fire();
+        }
     }
 
     //Calling from the object pool
     public void Fire()
     {
+        if(fireRate == 0)
+        {
+            fireRate = 0.5f;
             SpawnBullets("CannonBall", BulletPoint.transform.position);
+        }
     }
 
     //Sete Bullet location to the player's point where it will spawn
