@@ -78,6 +78,7 @@ public class P_Controls : MonoBehaviour
         else if(gm.playerHealth == 1)
         {
             health2.SetActive(false);
+            health1.SetActive(false);
         }
 
         //If playerHealth is <= 0 Run Death() function
@@ -144,9 +145,17 @@ public class P_Controls : MonoBehaviour
     //Damage to player from enemies
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "RowB")
         {
             gm.playerHealth -= 1;
+        }
+        else if(collision.gameObject.tag == "Brig")
+        {
+            gm.playerHealth -= 2;
+        }
+        else if(collision.gameObject.tag == "Gal")
+        {
+            gm.playerHealth -= 3;
         }
     }
 }
