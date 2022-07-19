@@ -26,7 +26,7 @@ public class P_Bullet : MonoBehaviour
     //when the bullet hits an enemy; destroy the bullet
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "RowB" || collision.gameObject.tag == "Brig" || collision.gameObject.tag == "Gal")
         {
             gameObject.SetActive(false);
         }

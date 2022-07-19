@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4941242683232187391}
   m_Layer: 0
   m_Name: Brigs
-  m_TagString: Enemy
+  m_TagString: Brig
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
