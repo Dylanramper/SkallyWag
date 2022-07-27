@@ -13,6 +13,8 @@ public class P_Controls : MonoBehaviour
     public GameObject health1;
     public GameObject health2;
     public GameObject health3;
+    public GameObject health4;
+    public GameObject health5;
 
     private float shipWidth;
     private float shipHeight;
@@ -34,8 +36,8 @@ public class P_Controls : MonoBehaviour
 
     void Start()
     {
-        //Set PlayerHealth to 3 lives
-        gm.playerHealth = 3;
+        //Set PlayerHealth to 5 lives
+        gm.playerHealth = 5;
 
         //Getting Height and Width of screenPos and W/H of Player.
         screenBounds = mainCam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCam.transform.position.z));
@@ -70,15 +72,27 @@ public class P_Controls : MonoBehaviour
         cameraPos.y = Mathf.Clamp(cameraPos.y, screenBounds.y * -1 + shipHeight, screenBounds.y - shipHeight);
 
         transform.position = cameraPos;
-
-        if(gm.playerHealth == 2)
+        if(gm.playerHealth == 4)
         {
+            health5.SetActive(false);
+        }
+        else if(gm.playerHealth == 3)
+        {
+            health5.SetActive(false);
+            health4.SetActive(false);
+        }
+        else if(gm.playerHealth == 2)
+        {
+            health5.SetActive(false);
+            health4.SetActive(false);
             health3.SetActive(false);
         }
         else if(gm.playerHealth == 1)
         {
+            health5.SetActive(false);
+            health4.SetActive(false);
+            health3.SetActive(false);
             health2.SetActive(false);
-            health1.SetActive(false);
         }
 
         //If playerHealth is <= 0 Run Death() function
