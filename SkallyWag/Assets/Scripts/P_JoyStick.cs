@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class P_JoyStick : MonoBehaviour
 {
+    public P_Controls controls;
     public FixedJoystick moveJoystick;
     public float moveSpeed = 7.0f;
 
@@ -14,6 +15,7 @@ public class P_JoyStick : MonoBehaviour
         float ver = moveJoystick.Vertical;
         Vector2 dir = new Vector2(hoz, ver).normalized;
         transform.Translate(dir * moveSpeed * Time.deltaTime, Space.World);
+        controls.Fire();
     }
 
 }
