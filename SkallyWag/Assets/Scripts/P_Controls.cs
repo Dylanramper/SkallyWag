@@ -74,25 +74,48 @@ public class P_Controls : MonoBehaviour
         transform.position = cameraPos;
         if(gm.playerHealth == 4)
         {
+            health1.SetActive(true);
+            health2.SetActive(true);
+            health3.SetActive(true);
+            health4.SetActive(true);
             health5.SetActive(false);
         }
         else if(gm.playerHealth == 3)
         {
+            health1.SetActive(true);
+            health2.SetActive(true);
+            health3.SetActive(true);
             health5.SetActive(false);
             health4.SetActive(false);
         }
         else if(gm.playerHealth == 2)
         {
+            health1.SetActive(true);
+            health2.SetActive(true);
             health5.SetActive(false);
             health4.SetActive(false);
             health3.SetActive(false);
         }
         else if(gm.playerHealth == 1)
         {
+            health1.SetActive(true);
             health5.SetActive(false);
             health4.SetActive(false);
             health3.SetActive(false);
             health2.SetActive(false);
+        }
+        else if(gm.playerHealth == 5)
+        {
+            health1.SetActive(true);
+            health2.SetActive(true);
+            health3.SetActive(true);
+            health4.SetActive(true);
+            health5.SetActive(true);
+        }
+
+        if(gm.playerHealth >= 5)
+        {
+            gm.playerHealth = 5;
         }
 
         //If playerHealth is <= 0 Run Death() function
@@ -170,6 +193,11 @@ public class P_Controls : MonoBehaviour
         else if(collision.gameObject.tag == "Gal")
         {
             gm.playerHealth -= 3;
+        }
+
+        if(collision.gameObject.tag == "Life")
+        {
+            gm.playerHealth += 1;
         }
     }
 }
