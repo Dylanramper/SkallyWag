@@ -19,20 +19,7 @@ public class P_Controls : MonoBehaviour
     private float shipWidth;
     private float shipHeight;
 
-    //Variables for object pooling bullets
-    public Dictionary<string, Queue<GameObject>> bulletPool;
-    public GameObject BulletPoint;
-
     public float fireRate = 0f;
-
-    [System.Serializable]
-    public class Pool
-    {
-        public string name;
-        public GameObject prefab;
-        public int poolSize;
-    }
-    public List<Pool> pools;
 
     void Start()
     {
@@ -43,24 +30,6 @@ public class P_Controls : MonoBehaviour
         screenBounds = mainCam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCam.transform.position.z));
         shipWidth = transform.GetComponent<BoxCollider2D>().bounds.extents.x;
         shipHeight = transform.GetComponent<BoxCollider2D>().bounds.extents.y;
-
-        //instancing bulletpool
-        bulletPool = new Dictionary<string, Queue<GameObject>>();
-
-        //store a certain amount of bullets in pool
-        foreach (Pool bullet in pools)
-        {
-            Queue<GameObject> B_Pool = new Queue<GameObject>();
-
-            for (int i = 0; i < bullet.poolSize; i++)
-            {
-                GameObject objPool = Instantiate(bullet.prefab);
-                objPool.SetActive(false);
-                B_Pool.Enqueue(objPool);
-            }
-
-            bulletPool.Add(bullet.name, B_Pool);
-        }
     }
     
 
@@ -74,25 +43,48 @@ public class P_Controls : MonoBehaviour
         transform.position = cameraPos;
         if(gm.playerHealth == 4)
         {
+            health1.SetActive(true);
+            health2.SetActive(true);
+            health3.SetActive(true);
+            health4.SetActive(true);
             health5.SetActive(false);
         }
         else if(gm.playerHealth == 3)
         {
+            health1.SetActive(true);
+            health2.SetActive(true);
+            health3.SetActive(true);
             health5.SetActive(false);
             health4.SetActive(false);
         }
         else if(gm.playerHealth == 2)
         {
+            health1.SetActive(true);
+            health2.SetActive(true);
             health5.SetActive(false);
             health4.SetActive(false);
             health3.SetActive(false);
         }
         else if(gm.playerHealth == 1)
         {
+            health1.SetActive(true);
             health5.SetActive(false);
             health4.SetActive(false);
             health3.SetActive(false);
             health2.SetActive(false);
+        }
+        else if(gm.playerHealth == 5)
+        {
+            health1.SetActive(true);
+            health2.SetActive(true);
+            health3.SetActive(true);
+            health4.SetActive(true);
+            health5.SetActive(true);
+        }
+
+        if(gm.playerHealth >= 5)
+        {
+            gm.playerHealth = 5;
         }
 
         //If playerHealth is <= 0 Run Death() function
@@ -101,11 +93,6 @@ public class P_Controls : MonoBehaviour
             gm.Death();
         }
         Controls();
-        fireRate -= Time.deltaTime;
-        if(fireRate <= 0)
-        {
-            fireRate = 0;
-        }
     }
 
     //Controls for Movement
@@ -127,33 +114,6 @@ public class P_Controls : MonoBehaviour
         {
             player.transform.Translate(new Vector2(6 * Time.deltaTime, 0));
         }
-        if (Input.GetKeyDown(KeyCode.Space) && fireRate == 0f)
-        {
-            fireRate = 0.5f;
-            Fire();
-        }
-    }
-
-    //Calling from the object pool
-    public void Fire()
-    {
-        if(fireRate == 0)
-        {
-            fireRate = 0.5f;
-            SpawnBullets("CannonBall", BulletPoint.transform.position);
-        }
-    }
-
-    //Sete Bullet location to the player's point where it will spawn
-    public GameObject SpawnBullets(string name, Vector2 position)
-    {
-        GameObject Objects = bulletPool[name].Dequeue();
-
-        Objects.SetActive(true);
-        Objects.transform.position = position;
-
-        bulletPool[name].Enqueue(Objects);
-        return Objects;
     }
 
     //Damage to player from enemies
@@ -170,6 +130,11 @@ public class P_Controls : MonoBehaviour
         else if(collision.gameObject.tag == "Gal")
         {
             gm.playerHealth -= 3;
+        }
+
+        if(collision.gameObject.tag == "Life")
+        {
+            gm.playerHealth += 1;
         }
     }
 }
