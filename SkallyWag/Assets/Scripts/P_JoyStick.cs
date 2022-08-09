@@ -15,7 +15,6 @@ public class P_JoyStick : MonoBehaviour
         float ver = moveJoystick.Vertical;
         Vector2 dir = new Vector2(hoz, ver).normalized;
         transform.Translate(dir * moveSpeed * Time.deltaTime, Space.World);
-        controls.Fire();
     }
 
 }

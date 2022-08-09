@@ -6,7 +6,6 @@ public class E_Bhvr : MonoBehaviour
 {
     float moveSpeed = 5.0f;
     float killZ = -8.48f;
-    public GameObject life;
     int spawnRate;
 
     // Update is called once per frame
