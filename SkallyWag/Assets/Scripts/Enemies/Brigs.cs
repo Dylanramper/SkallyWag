@@ -5,6 +5,7 @@ using UnityEngine;
 public class Brigs : MonoBehaviour
 {
     public GameObject life;
+    public GameObject spreadx3;
     int health = 2;
     int spawnrate;
 
@@ -13,13 +14,17 @@ public class Brigs : MonoBehaviour
     {
         if(health == 0)
         {
-            Destroy(gameObject);
-            spawnrate = Random.Range(1, 10);
-            Destroy(gameObject);
-            if (spawnrate >= 5)
+            spawnrate = Random.Range(1, 100);
+            Debug.Log(spawnrate);
+            if (spawnrate == Random.Range(1, 20))
             {
                 Instantiate(life, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
             }
+            if (spawnrate > 11 && spawnrate < 40)
+            {
+                Instantiate(spreadx3, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
+            }
+            Destroy(gameObject);
         }
     }
 

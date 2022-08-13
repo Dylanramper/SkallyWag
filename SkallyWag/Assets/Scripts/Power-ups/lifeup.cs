@@ -10,6 +10,11 @@ public class lifeup : MonoBehaviour
     void Update()
     {
         gameObject.transform.Translate(0, -moveSpeed * Time.deltaTime, 0);
+
+        if (gameObject.transform.position.y <= -8.48f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

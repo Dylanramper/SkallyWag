@@ -20,6 +20,10 @@ public class P_Controls : MonoBehaviour
     private float shipHeight;
 
     public float fireRate = 0f;
+    float timer = 10f;
+    public GameObject bp1;
+    public GameObject bp2;
+    bool active = false;
 
     void Start()
     {
@@ -93,6 +97,19 @@ public class P_Controls : MonoBehaviour
             gm.Death();
         }
         Controls();
+
+        //if active is true start countdown from 10 sec
+        //if active is false deactivate extra cannons
+        if(active == true)
+        {
+            timer -= 1f * Time.deltaTime;
+            if(timer <= 0f)
+            {
+                active = false;
+                bp1.SetActive(false);
+                bp2.SetActive(false);
+            }
+        }
     }
 
     //Controls for Movement
@@ -135,6 +152,10 @@ public class P_Controls : MonoBehaviour
         if(collision.gameObject.tag == "Life")
         {
             gm.playerHealth += 1;
+        }
+        if(collision.gameObject.tag == "spread")
+        {
+            active = true;
         }
     }
 }

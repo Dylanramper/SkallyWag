@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44c717ff3b56d9409e1c2aefa551865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: {fileID: 0}
 --- !u!61 &6207701643560667522
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,3 +138,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: {fileID: 1906774737672467780, guid: 464163ac7a0723f4dbb1d5f553694e58, type: 3}
+  spreadx3: {fileID: 458661418698964697, guid: 1304fc52a7a65d24299b44b4126fce32, type: 3}

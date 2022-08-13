@@ -6,19 +6,14 @@ public class Spreadx3 : MonoBehaviour
 {
     public GameObject bp1;
     public GameObject bp2;
-    public GameObject bp3;
-    bool active = true;
 
     private void Update()
     {
-        if(active == false)
+        gameObject.transform.Translate(0, -5.0f * Time.deltaTime, 0);
+
+        if (gameObject.transform.position.y <= -8.48f)
         {
-            bp3.SetActive(false);
-            active = true;
-        }
-        else if(active == true)
-        {
-            bp3.SetActive(true);
+            Destroy(gameObject);
         }
     }
 
@@ -26,7 +21,6 @@ public class Spreadx3 : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            active = false;
             bp1.SetActive(true);
             bp2.SetActive(true);            
             Destroy(gameObject);

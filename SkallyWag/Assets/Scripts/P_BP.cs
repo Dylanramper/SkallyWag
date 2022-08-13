@@ -7,6 +7,14 @@ public class P_BP : MonoBehaviour
     public GameObject bullet;
     float fireRate = 0f;
 
+    public GameObject bp1;
+    public GameObject bp2;
+
+    private void Start()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
