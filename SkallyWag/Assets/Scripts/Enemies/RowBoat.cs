@@ -16,7 +16,7 @@ public class RowBoat : MonoBehaviour
             Destroy(gameObject);
             spawnrate = Random.Range(1, 100);
             Destroy(gameObject);
-            if (spawnrate >= 30)
+            if (spawnrate > 1 && spawnrate < 30)
             {
                 Instantiate(life, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
             }

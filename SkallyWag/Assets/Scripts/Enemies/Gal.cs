@@ -16,11 +16,11 @@ public class Gal : MonoBehaviour
         {
             spawnrate = Random.Range(1, 100);
             Destroy(gameObject);
-            if(spawnrate == Random.Range(1, 10))
+            if(spawnrate > 1 && spawnrate < 10)
             {
                 Instantiate(life, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
             }
-            if (spawnrate == Random.Range(11, 40))
+            if (spawnrate > 11 && spawnrate < 40)
             {
                 Instantiate(spreadx3, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
             }

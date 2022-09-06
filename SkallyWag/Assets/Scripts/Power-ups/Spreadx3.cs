@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Spreadx3 : MonoBehaviour
 {
-    public GameObject bp1;
-    public GameObject bp2;
 
     private void Update()
     {
@@ -20,9 +18,7 @@ public class Spreadx3 : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
-        {
-            bp1.SetActive(true);
-            bp2.SetActive(true);            
+        {        
             Destroy(gameObject);
         }
     }

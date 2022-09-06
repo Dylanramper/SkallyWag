@@ -102,12 +102,15 @@ public class P_Controls : MonoBehaviour
         //if active is false deactivate extra cannons
         if(active == true)
         {
+            bp1.SetActive(true);
+            bp2.SetActive(true);
             timer -= 1f * Time.deltaTime;
             if(timer <= 0f)
             {
                 active = false;
                 bp1.SetActive(false);
                 bp2.SetActive(false);
+                timer = 10f;
             }
         }
     }
@@ -156,6 +159,10 @@ public class P_Controls : MonoBehaviour
         if(collision.gameObject.tag == "spread")
         {
             active = true;
+        }
+        if(collision.gameObject.tag == "spread" && active == true)
+        {
+            timer = 10f;
         }
     }
 }

@@ -15,8 +15,7 @@ public class Brigs : MonoBehaviour
         if(health == 0)
         {
             spawnrate = Random.Range(1, 100);
-            Debug.Log(spawnrate);
-            if (spawnrate == Random.Range(1, 20))
+            if (spawnrate > 1 && spawnrate < 20)
             {
                 Instantiate(life, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
             }
