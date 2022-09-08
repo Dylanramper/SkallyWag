@@ -20,7 +20,7 @@ public class P_Bullet : MonoBehaviour
 
         if(transform.position.y >= 8.4f)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
     //when the bullet hits an enemy; destroy the bullet
@@ -28,7 +28,7 @@ public class P_Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "RowB" || collision.gameObject.tag == "Brig" || collision.gameObject.tag == "Gal")
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }
