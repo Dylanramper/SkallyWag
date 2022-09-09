@@ -16,15 +16,15 @@ public class Brigs : MonoBehaviour
         if(health == 0)
         {
             spawnrate = Random.Range(1, 100);
-            if (spawnrate > 1 && spawnrate < 10)
+            if (spawnrate > 1 && spawnrate < 5)
             {
                 Instantiate(life, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
             }
-            if (spawnrate > 11 && spawnrate < 40)
+            if (spawnrate > 6 && spawnrate < 20)
             {
                 Instantiate(spreadx3, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
             }
-            if (spawnrate > 41 && spawnrate < 60)
+            if (spawnrate > 21 && spawnrate < 35)
             {
                 Instantiate(fireRate, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
             }
