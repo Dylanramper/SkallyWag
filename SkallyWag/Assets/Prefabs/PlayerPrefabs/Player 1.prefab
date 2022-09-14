@@ -111,7 +111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0a4114f8f9372294db99e6400f203c3d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0a97bc30d29d0b45a215bb26305abd7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -142,12 +142,9 @@ MonoBehaviour:
   health3: {fileID: 0}
   health4: {fileID: 0}
   health5: {fileID: 0}
-  BulletPoint: {fileID: 1892143000176339679}
   fireRate: 0
-  pools:
-  - name: CannonBall
-    prefab: {fileID: 7492757632389833788, guid: ca55648316c6d4d4fb9e8a0d6f8a7c35, type: 3}
-    poolSize: 20
+  bp1: {fileID: 0}
+  bp2: {fileID: 0}
 --- !u!61 &1892143001247709888
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -165,7 +162,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.45}
+    oldSize: {x: 1.53, y: 2.88}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -207,9 +204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98bca64cc3bbda244ac2c825afb0ec87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controls: {fileID: 1892143001247709889}
   moveJoystick: {fileID: 0}
   moveSpeed: 7
+  fireRateActive: 0
+  fireRateTimer: 0
 --- !u!1 &1892143001612266625
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +253,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7492757632389833788, guid: ca55648316c6d4d4fb9e8a0d6f8a7c35, type: 3}
+  fireRate: 0
+  bp1: {fileID: 0}
+  bp2: {fileID: 0}
+  joystick: {fileID: 0}
 --- !u!1 &1892143001812652285
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,3 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7492757632389833788, guid: ca55648316c6d4d4fb9e8a0d6f8a7c35, type: 3}
+  fireRate: 0
+  bp1: {fileID: 0}
+  bp2: {fileID: 0}
+  joystick: {fileID: 0}

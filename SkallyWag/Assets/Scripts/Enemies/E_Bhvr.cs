@@ -6,7 +6,7 @@ public class E_Bhvr : MonoBehaviour
 {
     public E_Spawn2 eSpawn;
 
-    public float moveSpeed = 3.0f;
+    public float moveSpeed = 5.0f;
     float killZ = -8.48f;
     int spawnRate;
 
@@ -19,11 +19,6 @@ public class E_Bhvr : MonoBehaviour
         if(gameObject.transform.position.y <= killZ) 
         {
             Destroy(gameObject);
-        }
-
-        if(eSpawn.secondTimer >= 2.5f)
-        {
-            moveSpeed = 5.0f;
         }
     }
 }
