@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eSpawn: {fileID: 4792842789513977429, guid: 3504a836abf8b9544a6ee17400a20e74, type: 3}
-  moveSpeed: 3
+  moveSpeed: 5
 --- !u!114 &-8374585497747748816
 MonoBehaviour:
   m_ObjectHideFlags: 0
