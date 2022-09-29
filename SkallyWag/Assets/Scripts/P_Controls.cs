@@ -139,7 +139,7 @@ public class P_Controls : MonoBehaviour
     //Damage to player from enemies
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "RowB")
+        if (collision.gameObject.tag == "RowB" || collision.gameObject.tag == "Bullet")
         {
             gm.playerHealth -= 1;
         }
