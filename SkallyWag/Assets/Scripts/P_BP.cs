@@ -10,8 +10,13 @@ public class P_BP : MonoBehaviour
     public GameObject bp1;
     public GameObject bp2;
 
-    public P_JoyStick joystick;
+    public P_JoyStk joystick;
 
+    /// <summary>
+    /// ////
+    /// </summary>
+    public bool fireRateActive = false;
+    public float fireRateTimer;
 
     private void Start()
     {
@@ -23,13 +28,24 @@ public class P_BP : MonoBehaviour
     {
         fireRate -= Time.deltaTime;
         Fire();
+        
+        /////////////
+        if (fireRateActive == true)
+        {
+            fireRateTimer -= Time.deltaTime;
+        }
+        if (fireRateTimer <= 0)
+        {
+            fireRateActive = false;
+            fireRateTimer = 10.0f;
+        }
     }
 
     public void Fire()
     {
         if (fireRate <= 0)
         {
-            if (joystick.fireRateActive == true)
+            if (fireRateActive == true)
             {
                 fireRate = 0.2f;
             }
