@@ -411,7 +411,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1892143000449680081}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98bca64cc3bbda244ac2c825afb0ec87, type: 3}
   m_Name: 
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1892143000449680081}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8f16dd1a50f9448b00c3c08717171c, type: 3}
   m_Name: 
@@ -689,6 +689,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -763,6 +764,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac25ba12e40a5348a7775ca5bd09a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 970766561}
+  speed: 5
 --- !u!1 &679470191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1089,11 @@ MonoBehaviour:
   bp1: {fileID: 0}
   bp2: {fileID: 0}
   joystick: {fileID: 201762428}
+--- !u!4 &970766561 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1892143001247709918, guid: b6a2b7c59f0425040a692766acf6a8d7, type: 3}
+  m_PrefabInstance: {fileID: 1892143000449680081}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1170407657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,6 +1254,10 @@ PrefabInstance:
     - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_Name
       value: Fixed Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2929252285020697096, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2113,6 +2137,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1892143000465315147, guid: b6a2b7c59f0425040a692766acf6a8d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892143000465315147, guid: b6a2b7c59f0425040a692766acf6a8d7, type: 3}
       propertyPath: bulletFire
       value: 
       objectReference: {fileID: 868952080}
@@ -2168,6 +2196,10 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1892143001247709889, guid: b6a2b7c59f0425040a692766acf6a8d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1892143001247709889, guid: b6a2b7c59f0425040a692766acf6a8d7, type: 3}
       propertyPath: bulletPoint
       value: 
