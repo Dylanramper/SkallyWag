@@ -25,6 +25,10 @@ public class P_Controls : MonoBehaviour
     public GameObject bp2;
     bool active = false;
 
+    public P_BP bp;
+
+    
+
     void Start()
     {
         //Set PlayerHealth to 5 lives
@@ -113,6 +117,7 @@ public class P_Controls : MonoBehaviour
                 timer = 10f;
             }
         }
+
     }
 
     //Controls for Movement
@@ -163,6 +168,10 @@ public class P_Controls : MonoBehaviour
         if(collision.gameObject.tag == "spread" && active == true)
         {
             timer = 10f;
+        }
+        if (collision.gameObject.tag == "rateoffire")
+        {
+            bp.fireRateActive = true;
         }
     }
 }
