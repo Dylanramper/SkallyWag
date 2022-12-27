@@ -806,6 +806,7 @@ MonoBehaviour:
   rotationSpeed: 720
   circle: {fileID: 1453513840}
   outerCircle: {fileID: 1799326523}
+  retationSpeed: 720
 --- !u!1 &522154756 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4792842789513977424, guid: 3504a836abf8b9544a6ee17400a20e74, type: 3}

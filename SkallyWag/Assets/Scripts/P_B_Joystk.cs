@@ -15,6 +15,8 @@ public class P_B_Joystk : MonoBehaviour
     public Transform circle;
     public Transform outerCircle;
 
+    public float retationSpeed;
+
     // Update is called once per frame
     void Update()
     {
@@ -53,10 +55,14 @@ public class P_B_Joystk : MonoBehaviour
             circle.GetComponent<SpriteRenderer>().enabled = false;
             outerCircle.GetComponent<SpriteRenderer>().enabled = false;
         }
-
     }
     void moveCharacter(Vector2 direction)
     {
         player.Translate(direction * speed * Time.deltaTime);
+        
+        //player.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+
+       /* Quaternion toRotate = Quaternion.LookRotation(Vector3.forward, direction);
+        player.transform.rotation = Quaternion.RotateTowards(player.transform.rotation, toRotate, retationSpeed * Time.deltaTime);*/
     }
 }
