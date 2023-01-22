@@ -24,6 +24,7 @@ public class P_Controls : MonoBehaviour
     public GameObject bp1;
     public GameObject bp2;
     bool active = false;
+    float recoverTime = 2.5f;
 
     public P_BP bp;
 
@@ -140,12 +141,19 @@ public class P_Controls : MonoBehaviour
         }
     }
 
+    //This is for when the player is hit, they get a brief moment on invincibility.
+    public void RecoveryPeriod()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+    }
+
     //Damage to player from enemies
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "RowB" || collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "RowB" || collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Manowar")
         {
             gm.playerHealth -= 1;
+            RecoveryPeriod();
         }
         else if(collision.gameObject.tag == "Brig")
         {
