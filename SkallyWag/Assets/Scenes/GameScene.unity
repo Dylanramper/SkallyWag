@@ -680,7 +680,6 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
-  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -783,30 +782,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eaeca5e18d4e3b4781bec654644fb6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bJoy: {fileID: 519420035}
   pjoy: {fileID: 519420033}
   enemySpawner: {fileID: 522154756}
   boss: {fileID: 8690393856437330922, guid: 1ff7a3d1b8a22ba46be075ad58925af7, type: 3}
   bossFight: 0
   timer: 5
---- !u!114 &519420035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ab283879ac89e747a78610415bc19ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 970766561}
-  speed: 5
-  rotationSpeed: 720
-  circle: {fileID: 1453513840}
-  outerCircle: {fileID: 1799326523}
-  retationSpeed: 720
 --- !u!1 &522154756 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4792842789513977424, guid: 3504a836abf8b9544a6ee17400a20e74, type: 3}

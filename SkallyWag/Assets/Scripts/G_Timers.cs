@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class G_Timers : MonoBehaviour
 {
-    public P_B_Joystk bJoy;
     public P_JoyStk pjoy;
 
     public GameObject enemySpawner, boss;
@@ -15,35 +14,33 @@ public class G_Timers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(bossFight == false)
-        {
-            timer = timer -= 1 * Time.deltaTime;
-            pjoy.enabled = true;
-            bJoy.enabled = false;
-            enemySpawner.SetActive(true);
-        }
+         if(bossFight == false)
+         {
+             timer = timer -= 1 * Time.deltaTime;
+             enemySpawner.SetActive(true);
+         }
 
-        if (bossFight == true)
-        {
-            pjoy.enabled = false;
-            bJoy.enabled = true;
-            enemySpawner.SetActive(false);
-        }
+         if (bossFight == true)
+         {
+             timer = 5f;
+             enemySpawner.SetActive(false);
+         }
 
-        if(timer <= 0)
-        {
-            StartBoss();
-        }
+         if(timer <= 0)
+         {
+             StartBoss();
+             Instantiate(boss, new Vector2(0, 10f), Quaternion.identity);
+         }
+     }
+
+     void StartBoss()
+     {
+             bossFight = true;
+     }
     }
-
-    void StartBoss()
-    {
-            bossFight = true;
-    }
-}
