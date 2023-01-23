@@ -4,27 +4,33 @@ using UnityEngine;
 
 public class P_Controls : MonoBehaviour
 {
+    //for accessing the GameManager script
     public GameManager gm;
 
+    //for screen bounds
     public GameObject player;
     private Vector2 screenBounds;
     public Camera mainCam;
+    private float shipWidth;
+    private float shipHeight;
 
+    //for health
     public GameObject health1;
     public GameObject health2;
     public GameObject health3;
     public GameObject health4;
     public GameObject health5;
-
-    private float shipWidth;
-    private float shipHeight;
-
+    
+    //firing canons
     public float fireRate = 0f;
     float timer = 10f;
     public GameObject bp1;
     public GameObject bp2;
     bool active = false;
-    float recoverTime = 2.5f;
+
+    //for when player gets damaged
+    float recoverTime = 2f;
+    bool hit;
 
     public P_BP bp;
 
@@ -38,6 +44,8 @@ public class P_Controls : MonoBehaviour
         screenBounds = mainCam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCam.transform.position.z));
         shipWidth = transform.GetComponent<BoxCollider2D>().bounds.extents.x;
         shipHeight = transform.GetComponent<BoxCollider2D>().bounds.extents.y;
+
+        hit = false;
     }
     
 
@@ -48,6 +56,7 @@ public class P_Controls : MonoBehaviour
         cameraPos.x = Mathf.Clamp(cameraPos.x, screenBounds.x * -1 + shipWidth, screenBounds.x - shipWidth);
         cameraPos.y = Mathf.Clamp(cameraPos.y, screenBounds.y * -1 + shipHeight, screenBounds.y - shipHeight);
 
+        //this is controlling the life counters on the top left corner of the screen
         transform.position = cameraPos;
         if(gm.playerHealth == 4)
         {
@@ -117,10 +126,23 @@ public class P_Controls : MonoBehaviour
                 timer = 10f;
             }
         }
+        
+        //if you are damaged, you become immune for 2 seconds
+        if(hit == true)
+        {
+            RecoveryPeriod();
+            recoverTime -= 1 * Time.deltaTime;
+        }
+        if(recoverTime <= 0f)
+        {
+            hit = false;
+            recoverTime = 2f;
+            player.GetComponent<BoxCollider2D>().enabled = true;
+        }
 
     }
 
-    //Controls for Movement
+    //Controls for Movement on keyboard
     public void Controls()
     {
         if (Input.GetKey(KeyCode.W))
@@ -144,7 +166,10 @@ public class P_Controls : MonoBehaviour
     //This is for when the player is hit, they get a brief moment on invincibility.
     public void RecoveryPeriod()
     {
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        if (hit == true)
+        {
+            player.GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 
     //Damage to player from enemies
@@ -153,17 +178,19 @@ public class P_Controls : MonoBehaviour
         if (collision.gameObject.tag == "RowB" || collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Manowar")
         {
             gm.playerHealth -= 1;
-            RecoveryPeriod();
+            hit = true;
         }
         else if(collision.gameObject.tag == "Brig")
         {
             gm.playerHealth -= 2;
+            hit = true;
         }
         else if(collision.gameObject.tag == "Gal")
         {
             gm.playerHealth -= 3;
+            hit = true;
         }
-
+        //collision for power-ups
         if(collision.gameObject.tag == "Life")
         {
             gm.playerHealth += 1;
