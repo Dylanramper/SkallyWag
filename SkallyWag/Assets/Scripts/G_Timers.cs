@@ -35,7 +35,7 @@ public class G_Timers : MonoBehaviour
          if(timer <= 0)
          {
              StartBoss();
-             Instantiate(boss, new Vector2(0, 10f), Quaternion.identity);
+             Instantiate(boss, new Vector2(0, 12f), Quaternion.identity);
          }
      }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class P_JoyStk : MonoBehaviour
 {
+    public P_Controls controls;
     public Transform player;
     public float speed = 5.0f;
     private bool touchStart = false;
@@ -34,7 +35,11 @@ public class P_JoyStk : MonoBehaviour
         {
             touchStart = false;
         }
-
+        if(controls.hit == true)
+        {
+            speed = 4.0f;
+        }
+        else { speed = 5.0f; }
     }
     private void FixedUpdate()
     {
