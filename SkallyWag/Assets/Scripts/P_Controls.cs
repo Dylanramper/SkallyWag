@@ -30,7 +30,7 @@ public class P_Controls : MonoBehaviour
 
     //for when player gets damaged
     float recoverTime = 2f;
-    bool hit;
+    public bool hit;
 
     public P_BP bp;
 

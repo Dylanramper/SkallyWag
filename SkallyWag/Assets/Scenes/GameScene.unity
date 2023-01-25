@@ -766,6 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac25ba12e40a5348a7775ca5bd09a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controls: {fileID: 201762431}
   player: {fileID: 970766561}
   speed: 5
   circle: {fileID: 1453513840}

@@ -11,10 +11,6 @@ public class P_BP : MonoBehaviour
     public GameObject bp2;
 
     public P_JoyStk joystick;
-
-    /// <summary>
-    /// ////
-    /// </summary>
     public bool fireRateActive = false;
     public float fireRateTimer;
 
