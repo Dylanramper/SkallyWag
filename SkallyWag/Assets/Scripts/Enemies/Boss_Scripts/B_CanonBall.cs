@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P_Bullet : MonoBehaviour
+public class B_CanonBall : MonoBehaviour
 {
     float bulletSpeed;
 
@@ -16,9 +16,9 @@ public class P_Bullet : MonoBehaviour
     void Update()
     {
         //moving the bullet
-        transform.Translate(new Vector2(0, bulletSpeed * Time.deltaTime));
+        transform.Translate(new Vector2(0, -bulletSpeed * Time.deltaTime));
 
-        if(transform.position.y >= 8.4f)
+        if(transform.position.y <= -8.48f)
         {
             Destroy(gameObject);
         }
@@ -26,7 +26,7 @@ public class P_Bullet : MonoBehaviour
     //when the bullet hits an enemy; destroy the bullet
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "RowB" || collision.gameObject.tag == "Brig" || collision.gameObject.tag == "Gal" || collision.gameObject.tag == "Manowar" || collision.gameObject.tag == "EnemyBull")
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Bullet")
         {
             Destroy(gameObject);
         }

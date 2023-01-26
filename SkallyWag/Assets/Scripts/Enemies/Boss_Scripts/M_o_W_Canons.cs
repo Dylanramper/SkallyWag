@@ -27,7 +27,7 @@ public class M_o_W_Canons : MonoBehaviour
         if(fireRate <= 0)
         {
             Instantiate(bullet, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            fireRate = 0.2f;
+            fireRate = 1f;
         }
     }
 }

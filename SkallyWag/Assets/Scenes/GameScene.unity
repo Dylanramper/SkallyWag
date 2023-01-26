@@ -1082,30 +1082,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728671433}
   m_CullTransparentMesh: 1
---- !u!1 &868952078 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1892143000176339679, guid: b6a2b7c59f0425040a692766acf6a8d7, type: 3}
-  m_PrefabInstance: {fileID: 1892143000449680081}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &868952080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868952078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80ddc6d5e2bfe4c40b382041abbe719d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 7492757632389833788, guid: ca55648316c6d4d4fb9e8a0d6f8a7c35, type: 3}
-  fireRate: 0
-  bp1: {fileID: 0}
-  bp2: {fileID: 0}
-  joystick: {fileID: 0}
-  fireRateActive: 0
-  fireRateTimer: 0
 --- !u!4 &970766561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1892143001247709918, guid: b6a2b7c59f0425040a692766acf6a8d7, type: 3}
@@ -2192,7 +2168,7 @@ PrefabInstance:
     - target: {fileID: 1892143000465315147, guid: b6a2b7c59f0425040a692766acf6a8d7, type: 3}
       propertyPath: bulletFire
       value: 
-      objectReference: {fileID: 868952080}
+      objectReference: {fileID: 0}
     - target: {fileID: 1892143000465315147, guid: b6a2b7c59f0425040a692766acf6a8d7, type: 3}
       propertyPath: moveJoystick
       value: 
@@ -2216,7 +2192,7 @@ PrefabInstance:
     - target: {fileID: 1892143001247709889, guid: b6a2b7c59f0425040a692766acf6a8d7, type: 3}
       propertyPath: bp
       value: 
-      objectReference: {fileID: 868952080}
+      objectReference: {fileID: 0}
     - target: {fileID: 1892143001247709889, guid: b6a2b7c59f0425040a692766acf6a8d7, type: 3}
       propertyPath: bp1
       value: 
@@ -2256,7 +2232,7 @@ PrefabInstance:
     - target: {fileID: 1892143001247709889, guid: b6a2b7c59f0425040a692766acf6a8d7, type: 3}
       propertyPath: bulletPoint
       value: 
-      objectReference: {fileID: 868952080}
+      objectReference: {fileID: 0}
     - target: {fileID: 1892143001247709916, guid: b6a2b7c59f0425040a692766acf6a8d7, type: 3}
       propertyPath: m_Name
       value: Player
