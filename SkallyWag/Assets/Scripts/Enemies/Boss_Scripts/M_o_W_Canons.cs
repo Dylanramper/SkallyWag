@@ -26,8 +26,10 @@ public class M_o_W_Canons : MonoBehaviour
     {
         if(fireRate <= 0)
         {
-            Instantiate(bullet, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            fireRate = 1f;
+#pragma warning disable CS0618 // Type or member is obsolete
+            Instantiate(bullet, new Vector2(transform.position.x, transform.position.y), Quaternion.EulerRotation(new Vector3(0, 0, transform.rotation.z)));
+#pragma warning restore CS0618 // Type or member is obsolete
+            fireRate = 1.25f;
         }
     }
 }
