@@ -15,11 +15,7 @@ public class P_Controls : MonoBehaviour
     private float shipHeight;
 
     //for health
-    public GameObject health1;
-    public GameObject health2;
-    public GameObject health3;
-    public GameObject health4;
-    public GameObject health5;
+    
     
     //firing canons
     public float fireRate = 0f;
@@ -38,7 +34,7 @@ public class P_Controls : MonoBehaviour
     void Start()
     {
         //Set PlayerHealth to 5 lives
-        gm.playerHealth = 5;
+        gm.playerHealth = 8;
 
         //Getting Height and Width of screenPos and W/H of Player.
         screenBounds = mainCam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCam.transform.position.z));
@@ -58,50 +54,11 @@ public class P_Controls : MonoBehaviour
 
         //this is controlling the life counters on the top left corner of the screen
         transform.position = cameraPos;
-        if(gm.playerHealth == 4)
-        {
-            health1.SetActive(true);
-            health2.SetActive(true);
-            health3.SetActive(true);
-            health4.SetActive(true);
-            health5.SetActive(false);
-        }
-        else if(gm.playerHealth == 3)
-        {
-            health1.SetActive(true);
-            health2.SetActive(true);
-            health3.SetActive(true);
-            health5.SetActive(false);
-            health4.SetActive(false);
-        }
-        else if(gm.playerHealth == 2)
-        {
-            health1.SetActive(true);
-            health2.SetActive(true);
-            health5.SetActive(false);
-            health4.SetActive(false);
-            health3.SetActive(false);
-        }
-        else if(gm.playerHealth == 1)
-        {
-            health1.SetActive(true);
-            health5.SetActive(false);
-            health4.SetActive(false);
-            health3.SetActive(false);
-            health2.SetActive(false);
-        }
-        else if(gm.playerHealth == 5)
-        {
-            health1.SetActive(true);
-            health2.SetActive(true);
-            health3.SetActive(true);
-            health4.SetActive(true);
-            health5.SetActive(true);
-        }
+       
 
-        if(gm.playerHealth >= 5)
+        if(gm.playerHealth >= 8)
         {
-            gm.playerHealth = 5;
+            gm.playerHealth = 8;
         }
 
         //If playerHealth is <= 0 Run Death() function
@@ -179,21 +136,25 @@ public class P_Controls : MonoBehaviour
         {
             gm.playerHealth -= 1;
             hit = true;
+            Debug.Log(gm.playerHealth);
         }
         else if(collision.gameObject.tag == "Brig")
         {
             gm.playerHealth -= 2;
             hit = true;
+            Debug.Log(gm.playerHealth);
         }
         else if(collision.gameObject.tag == "Gal")
         {
             gm.playerHealth -= 3;
             hit = true;
+            Debug.Log(gm.playerHealth);
         }
         //collision for power-ups
         if(collision.gameObject.tag == "Life")
         {
             gm.playerHealth += 1;
+            Debug.Log(gm.playerHealth);
         }
         if(collision.gameObject.tag == "spread")
         {
