@@ -32,7 +32,6 @@ public class E_M_o_W : MonoBehaviour
         if(collision.gameObject.tag == "Bullet")
         {
             health -= 1;
-            Debug.Log("Ouch!");
         }
     }
 }

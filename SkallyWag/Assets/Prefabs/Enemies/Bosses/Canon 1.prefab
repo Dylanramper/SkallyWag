@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5931769163576887795}
   m_Layer: 0
   m_Name: Canon 1
-  m_TagString: EnemyBull
+  m_TagString: Flame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

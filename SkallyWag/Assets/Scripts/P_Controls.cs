@@ -13,9 +13,6 @@ public class P_Controls : MonoBehaviour
     public Camera mainCam;
     private float shipWidth;
     private float shipHeight;
-
-    //for health
-    
     
     //firing canons
     public float fireRate = 0f;
@@ -27,6 +24,7 @@ public class P_Controls : MonoBehaviour
     //for when player gets damaged
     float recoverTime = 2f;
     public bool hit;
+    bool onFire;
 
     public P_BP bp;
 
@@ -42,6 +40,7 @@ public class P_Controls : MonoBehaviour
         shipHeight = transform.GetComponent<BoxCollider2D>().bounds.extents.y;
 
         hit = false;
+        onFire = false;
     }
     
 
@@ -66,7 +65,6 @@ public class P_Controls : MonoBehaviour
         {
             gm.Death();
         }
-        Controls();
 
         //if active is true start countdown from 10 sec
         //if active is false deactivate extra cannons
@@ -95,8 +93,16 @@ public class P_Controls : MonoBehaviour
             hit = false;
             recoverTime = 2f;
             player.GetComponent<BoxCollider2D>().enabled = true;
+            onFire = false;
         }
 
+        if (onFire == true)
+        {
+            gm.playerHealth -= .50f * Time.deltaTime;
+            Debug.Log(gm.playerHealth);
+        }
+
+        Controls();
     }
 
     //Controls for Movement on keyboard
@@ -132,7 +138,7 @@ public class P_Controls : MonoBehaviour
     //Damage to player from enemies
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "RowB" || collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Manowar")
+        if (collision.gameObject.tag == "RowB" || collision.gameObject.tag == "EnemyBull" || collision.gameObject.tag == "Manowar")
         {
             gm.playerHealth -= 1;
             hit = true;
@@ -150,8 +156,13 @@ public class P_Controls : MonoBehaviour
             hit = true;
             Debug.Log(gm.playerHealth);
         }
+        if (collision.gameObject.tag == "Flame")
+        {
+            hit = true;
+            onFire = true;
+        }
         //collision for power-ups
-        if(collision.gameObject.tag == "Life")
+        if (collision.gameObject.tag == "Life")
         {
             gm.playerHealth += 1;
             Debug.Log(gm.playerHealth);

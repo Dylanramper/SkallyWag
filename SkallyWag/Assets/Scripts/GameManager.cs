@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] P_Controls playerScript;
     [SerializeField] E_Bhvr enemyScript;
-    public int playerHealth;
+    public float playerHealth;
 
     private void Awake()
     {
