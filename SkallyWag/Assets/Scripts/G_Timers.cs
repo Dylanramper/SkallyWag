@@ -8,7 +8,7 @@ public class G_Timers : MonoBehaviour
 
     public GameObject enemySpawner, boss;
 
-    public bool bossFight = false;
+    public bool bossFight = true;
     public float timer = 5f;
 
     // Start is called before the first frame update

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class P_Controls : MonoBehaviour
 {
     //for accessing the GameManager script
     public GameManager gm;
+    public Slider healthBar;
 
     //for screen bounds
     public GameObject player;
@@ -65,6 +67,8 @@ public class P_Controls : MonoBehaviour
         {
             gm.Death();
         }
+
+        healthBar.GetComponent<Slider>().value = gm.playerHealth;
 
         //if active is true start countdown from 10 sec
         //if active is false deactivate extra cannons
