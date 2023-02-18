@@ -6,7 +6,7 @@ public class E_M_o_W : MonoBehaviour
 {
     int health = 100;
     public GameObject life, spreadx3, fireRate;
-    public GameObject pointA, pointB, PointC;
+    public GameObject pointA, pointB, pointC;
     public float moveTimer;
     int randomPoint;
     float moveSpeed;
@@ -26,32 +26,34 @@ public class E_M_o_W : MonoBehaviour
         }
 
         moveTimer -= 1 * Time.deltaTime;
+
         if(moveTimer <= 0)
         {
-            Movement();
-            randomPoint = Random.Range(0, 2);
+            randomPoint = Random.Range(0, 3);
             moveTimer = 10;
             Debug.Log(randomPoint);
+        }
+
+        if (randomPoint == 0)
+        {
+            transform.position = (new Vector3(pointA.transform.position.x, pointA.transform.position.y));
+            //transform.position = pointA.transform.position;
+        }
+        if (randomPoint == 1)
+        {
+            transform.position = (new Vector3(pointB.transform.position.x, pointB.transform.position.y));
+            //transform.position = pointB.transform.position;
+        }
+        if (randomPoint == 2)
+        {
+            transform.position = (new Vector3(pointC.transform.position.x, pointC.transform.position.y));
+            //transform.position = PointC.transform.position;
         }
     }
     
     void killBoss()
     {
         Destroy(gameObject);
-    }
-
-    void Movement()
-    {
-        if(randomPoint == 0)
-        {
-            transform.position = new Vector3(0, 12 * Time.deltaTime, 0);
-            //transform.Translate(0, 12 * Time.deltaTime, 0);
-        }
-        if(randomPoint == 1)
-        {
-            transform.position = new Vector3(-2 * Time.deltaTime, 10 * Time.deltaTime, 0);
-            //transform.Translate(-2 * Time.deltaTime, 10 * Time.deltaTime, 0);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

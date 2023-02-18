@@ -423,3 +423,7 @@ MonoBehaviour:
   life: {fileID: 1906774737672467780, guid: 464163ac7a0723f4dbb1d5f553694e58, type: 3}
   spreadx3: {fileID: 458661418698964697, guid: 1304fc52a7a65d24299b44b4126fce32, type: 3}
   fireRate: {fileID: 784211576007461257, guid: a6187874467467244965466f79f08462, type: 3}
+  pointA: {fileID: 5995890025135177336, guid: f3356603427d50346ab01144376a45f1, type: 3}
+  pointB: {fileID: 4833384007930246309, guid: 0003e7fe6fd399047bb922abc92fe9b7, type: 3}
+  pointC: {fileID: 6878648329344425054, guid: ffaccfbcec778124fab08bceccda3d63, type: 3}
+  moveTimer: 0
