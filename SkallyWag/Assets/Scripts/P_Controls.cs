@@ -103,7 +103,6 @@ public class P_Controls : MonoBehaviour
         if (onFire == true)
         {
             gm.playerHealth -= .50f * Time.deltaTime;
-            Debug.Log(gm.playerHealth);
         }
 
         Controls();
@@ -146,19 +145,16 @@ public class P_Controls : MonoBehaviour
         {
             gm.playerHealth -= 1;
             hit = true;
-            Debug.Log(gm.playerHealth);
         }
         else if(collision.gameObject.tag == "Brig")
         {
             gm.playerHealth -= 2;
             hit = true;
-            Debug.Log(gm.playerHealth);
         }
         else if(collision.gameObject.tag == "Gal")
         {
             gm.playerHealth -= 3;
             hit = true;
-            Debug.Log(gm.playerHealth);
         }
         if (collision.gameObject.tag == "Flame")
         {
@@ -169,7 +165,6 @@ public class P_Controls : MonoBehaviour
         if (collision.gameObject.tag == "Life")
         {
             gm.playerHealth += 1;
-            Debug.Log(gm.playerHealth);
         }
         if(collision.gameObject.tag == "spread")
         {

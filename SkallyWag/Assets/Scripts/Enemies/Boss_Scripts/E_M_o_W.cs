@@ -10,11 +10,13 @@ public class E_M_o_W : MonoBehaviour
     public float moveTimer;
     int randomPoint;
     float moveSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
         moveTimer = 10;
-        moveSpeed = 100;
+        moveSpeed = 2.5f;
+        randomPoint = 0;
     }
 
     // Update is called once per frame
@@ -29,25 +31,22 @@ public class E_M_o_W : MonoBehaviour
 
         if(moveTimer <= 0)
         {
-            randomPoint = Random.Range(0, 3);
+            randomPoint = Random.Range(1, 4);
             moveTimer = 10;
             Debug.Log(randomPoint);
         }
 
-        if (randomPoint == 0)
-        {
-            transform.position = (new Vector3(pointA.transform.position.x, pointA.transform.position.y));
-            //transform.position = pointA.transform.position;
-        }
         if (randomPoint == 1)
         {
-            transform.position = (new Vector3(pointB.transform.position.x, pointB.transform.position.y));
-            //transform.position = pointB.transform.position;
+            transform.position = Vector2.MoveTowards(transform.position, pointA.transform.position, moveSpeed * Time.deltaTime);
         }
         if (randomPoint == 2)
         {
-            transform.position = (new Vector3(pointC.transform.position.x, pointC.transform.position.y));
-            //transform.position = PointC.transform.position;
+            transform.position = Vector2.MoveTowards(transform.position, pointB.transform.position, moveSpeed * Time.deltaTime);
+        }
+        if (randomPoint == 3)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, pointC.transform.position, moveSpeed * Time.deltaTime);
         }
     }
     

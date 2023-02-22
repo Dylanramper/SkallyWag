@@ -24,8 +24,7 @@ public class P_BP : MonoBehaviour
     {
         fireRate -= Time.deltaTime;
         Fire();
-        
-        /////////////
+
         if (fireRateActive == true)
         {
             fireRateTimer -= Time.deltaTime;
@@ -41,11 +40,11 @@ public class P_BP : MonoBehaviour
     {
         if (fireRate <= 0)
         {
+            fireRate = 0.5f;
             if (fireRateActive == true)
             {
                 fireRate = 0.2f;
             }
-            else { fireRate = 0.5f; }
 
             
 #pragma warning disable CS0618 // Type or member is obsolete
