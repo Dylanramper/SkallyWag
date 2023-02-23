@@ -9,7 +9,7 @@ public class G_Timers : MonoBehaviour
     public GameObject enemySpawner, boss;
 
     public bool bossFight = false;
-    public float timer = 60f;
+    public float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,6 @@ public class G_Timers : MonoBehaviour
          {
              timer = timer -= 1 * Time.deltaTime;
              enemySpawner.SetActive(true);
-            Debug.Log(timer);
          }
 
          if (bossFight == true)

@@ -101,6 +101,68 @@ MonoBehaviour:
   fireRate: 0.2
   bp1: {fileID: 0}
   bp2: {fileID: 0}
+--- !u!1 &833331253897770646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8434963124603887424}
+  m_Layer: 0
+  m_Name: RowBSpawnPoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8434963124603887424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833331253897770646}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.107, y: -1.481, z: -0.11547179}
+  m_LocalScale: {x: 0.17646812, y: 0.17358895, z: 0.4487122}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2527974679003850388}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &973832259778280120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4285565267271300039}
+  m_Layer: 0
+  m_Name: RowBSpawnPoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4285565267271300039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973832259778280120}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.091, y: -1.481, z: -0.11547179}
+  m_LocalScale: {x: 0.17646812, y: 0.17358895, z: 0.4487122}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2527974679003850388}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4618561976106654902
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +399,8 @@ Transform:
   - {fileID: 1527566457706861626}
   - {fileID: 6213250696735722166}
   - {fileID: 3071861610762944452}
+  - {fileID: 4285565267271300039}
+  - {fileID: 8434963124603887424}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -426,4 +490,7 @@ MonoBehaviour:
   pointA: {fileID: 5995890025135177336, guid: f3356603427d50346ab01144376a45f1, type: 3}
   pointB: {fileID: 4833384007930246309, guid: 0003e7fe6fd399047bb922abc92fe9b7, type: 3}
   pointC: {fileID: 6878648329344425054, guid: ffaccfbcec778124fab08bceccda3d63, type: 3}
+  RowB: {fileID: 7054755396103768642, guid: 85864ae410e59de4086b9bdaffd2dcda, type: 3}
+  RowBSpawnPoint1: {fileID: 973832259778280120}
+  RowBSpawnPoint2: {fileID: 833331253897770646}
   moveTimer: 0
