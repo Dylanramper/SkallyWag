@@ -9,6 +9,15 @@ public class Gal : MonoBehaviour
     public GameObject spreadx3;
     public GameObject firerate;
     int spawnrate;
+    SpriteRenderer spriteRenderer;
+    Color origColor;
+    float hitTime = .25f;
+    
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        origColor = spriteRenderer.material.color;
+    }
 
     // Update is called once per frame
     void Update()
@@ -31,12 +40,22 @@ public class Gal : MonoBehaviour
             }
         }
     }
+    void HitStart()
+    {
+        spriteRenderer.material.color = Color.red;
+        Invoke("HitStop", hitTime);
+    }
+    void HitStop()
+    {
+        spriteRenderer.material.color = origColor;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Bullet")
         {
             health -= 1;
+            HitStart();
         }
     }
 }

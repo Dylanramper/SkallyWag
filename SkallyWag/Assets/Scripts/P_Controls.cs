@@ -30,6 +30,11 @@ public class P_Controls : MonoBehaviour
 
     public P_BP bp;
 
+    //Variables for Hit indicators
+    SpriteRenderer spriteRenderer;
+    Color origColor;
+    float hitTime = 1f;
+
 
     void Start()
     {
@@ -43,6 +48,9 @@ public class P_Controls : MonoBehaviour
 
         hit = false;
         onFire = false;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        origColor = spriteRenderer.material.color;
     }
     
 
@@ -135,8 +143,21 @@ public class P_Controls : MonoBehaviour
         if (hit == true)
         {
             player.GetComponent<BoxCollider2D>().enabled = false;
+            hitFlashStart();
         }
     }
+
+    void hitFlashStart()
+    {
+        spriteRenderer.material.color = Color.red;
+        Invoke("hitFlashStop", hitTime);
+    }
+
+    void hitFlashStop()
+    {
+        spriteRenderer.material.color = origColor;
+    }
+
 
     //Damage to player from enemies
     private void OnTriggerEnter2D(Collider2D collision)

@@ -23,6 +23,15 @@ public class E_M_o_W : MonoBehaviour
     int spawnRate;
     float spawnRowBTime;
 
+    //variables for drops
+    int dropSpawn;
+    public GameObject spawnpointPU;
+
+    //Variables for Hit Indicator
+    SpriteRenderer spriteRenderer;
+    Color origColor;
+    float hitTime = .25f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +40,8 @@ public class E_M_o_W : MonoBehaviour
         randomPoint = 0;
         spawnRowBTime = 5f;
         spawnRate = 0;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        origColor = spriteRenderer.material.color;
     }
 
     // Update is called once per frame
@@ -86,12 +97,42 @@ public class E_M_o_W : MonoBehaviour
         Destroy(gameObject);
     }
 
+    void SpawnPowerUp()
+    {
+        if(dropSpawn == 0)
+        {
+            Instantiate(life, new Vector2(spawnpointPU.transform.position.x, spawnpointPU.transform.position.y), Quaternion.identity);
+        }
+        else if(dropSpawn == 1)
+        {
+            Instantiate(spreadx3, new Vector2(spawnpointPU.transform.position.x, spawnpointPU.transform.position.y), Quaternion.identity);
+        }
+        else if(dropSpawn == 2)
+        {
+            Instantiate(fireRate, new Vector2(spawnpointPU.transform.position.x, spawnpointPU.transform.position.y), Quaternion.identity);
+        }
+    }
+
+    void HitStart()
+    {
+        spriteRenderer.material.color = Color.red;
+        Invoke("HitStop", hitTime);
+    }
+    void HitStop()
+    {
+        spriteRenderer.material.color = origColor;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //taking damage
         if(collision.gameObject.tag == "Bullet")
         {
             health -= 1;
+            dropSpawn = Random.Range(0, 55);
+            SpawnPowerUp();
+            Debug.Log(dropSpawn);
+            HitStart();
         }
     }
 }
