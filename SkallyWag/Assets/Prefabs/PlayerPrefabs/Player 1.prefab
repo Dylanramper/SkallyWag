@@ -207,13 +207,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 6566224176318039115, guid: 90da180c3520ef84e87d4d6c05267204, type: 3}
+  healthBar: {fileID: 0}
   player: {fileID: 1892143001247709916}
   mainCam: {fileID: 0}
-  health1: {fileID: 0}
-  health2: {fileID: 0}
-  health3: {fileID: 0}
-  health4: {fileID: 0}
-  health5: {fileID: 0}
   fireRate: 0
   bp1: {fileID: 0}
   bp2: {fileID: 0}
