@@ -14,7 +14,7 @@ public class G_Timers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 60f;
+        timer = 3f;
     }
 
     // Update is called once per frame
