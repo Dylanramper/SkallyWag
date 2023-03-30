@@ -15,6 +15,7 @@ public class G_Timers : MonoBehaviour
     void Start()
     {
         timer = 3f;
+        boss.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,7 +36,8 @@ public class G_Timers : MonoBehaviour
          if(timer <= 0)
          {
              StartBoss();
-             Instantiate(boss, new Vector2(0, 12f), Quaternion.identity);
+            boss.SetActive(true);
+             //Instantiate(boss, new Vector2(0, 12f), Quaternion.identity);
          }
      }
 

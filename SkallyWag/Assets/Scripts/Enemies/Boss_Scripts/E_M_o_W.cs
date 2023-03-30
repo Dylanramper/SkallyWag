@@ -131,7 +131,6 @@ public class E_M_o_W : MonoBehaviour
             health -= 1;
             dropSpawn = Random.Range(0, 55);
             SpawnPowerUp();
-            Debug.Log(dropSpawn);
             HitStart();
         }
     }
