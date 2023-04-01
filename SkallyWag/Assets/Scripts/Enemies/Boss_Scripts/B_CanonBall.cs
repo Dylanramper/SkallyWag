@@ -26,7 +26,7 @@ public class B_CanonBall : MonoBehaviour
     //when the bullet hits an enemy; destroy the bullet
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
         }

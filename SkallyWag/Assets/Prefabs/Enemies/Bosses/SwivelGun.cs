@@ -64,6 +64,5 @@ public class SwivelGun : MonoBehaviour
     void Fire()
     {
         Instantiate(bullet, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-        
     }
 }
