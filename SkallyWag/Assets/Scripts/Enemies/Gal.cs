@@ -15,6 +15,8 @@ public class Gal : MonoBehaviour
     
     void Start()
     {
+        //get sprite renderer component from this enemy
+        //set origcolor to the original colour
         spriteRenderer = GetComponent<SpriteRenderer>();
         origColor = spriteRenderer.material.color;
     }
@@ -22,6 +24,7 @@ public class Gal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //When destroyed pick at random which power up to drop
         if(health == 0)
         {
             spawnrate = Random.Range(1, 100);
@@ -40,6 +43,8 @@ public class Gal : MonoBehaviour
             }
         }
     }
+    //---------------------------------------------------------------
+    //changing color when hit
     void HitStart()
     {
         spriteRenderer.material.color = Color.red;
@@ -49,7 +54,7 @@ public class Gal : MonoBehaviour
     {
         spriteRenderer.material.color = origColor;
     }
-
+    //---------------------------------------------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Bullet")

@@ -46,7 +46,7 @@ public class P_BP : MonoBehaviour
                 fireRate = 0.2f;
             }
 
-            
+            //spawn canon balls
 #pragma warning disable CS0618 // Type or member is obsolete
             Instantiate(bullet, new Vector2(transform.position.x, transform.position.y), Quaternion.EulerRotation(new Vector3(0,0, transform.rotation.z)));
 #pragma warning restore CS0618 // Type or member is obsolete

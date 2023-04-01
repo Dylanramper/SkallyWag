@@ -9,6 +9,7 @@ public class SwivelGun : MonoBehaviour
     public Transform player;
     private Rigidbody2D rb;
 
+    //Variables for firing 
     public GameObject bullet;
     public GameObject bp;
     public float fireRate;
@@ -33,6 +34,7 @@ public class SwivelGun : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle - 90f;
 
+        //----------------------------------------------------------------------------------
         //Firing at the player 
         if (ableToShoot == true)
         {
@@ -60,7 +62,8 @@ public class SwivelGun : MonoBehaviour
             pauseFire = 2f;
         }
     }
-
+    //--------------------------------------------------------------------------------
+    //spawning the cannonball from the swivel gun
     void Fire()
     {
         Instantiate(bullet, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);

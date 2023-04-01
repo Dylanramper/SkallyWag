@@ -86,17 +86,20 @@ public class E_M_o_W : MonoBehaviour
         }
     }
 
+    //function for spawning the rowboats from boss
     void spawnRowB()
     {
         Instantiate(RowB, new Vector2(RowBSpawnPoint1.transform.position.x, RowBSpawnPoint1.transform.position.y), Quaternion.identity);
         Instantiate(RowB, new Vector2(RowBSpawnPoint2.transform.position.x, RowBSpawnPoint2.transform.position.y), Quaternion.identity);
     }
     
+    //kills the boss when health reaches 0
     void killBoss()
     {
         Destroy(gameObject);
     }
 
+    //Dropping power ups occasionally when damaged
     void SpawnPowerUp()
     {
         if(dropSpawn == 0)
@@ -113,6 +116,8 @@ public class E_M_o_W : MonoBehaviour
         }
     }
 
+    //--------------------------------------------------------------------------
+    //Functions for the boss the flash red when hit
     void HitStart()
     {
         spriteRenderer.material.color = Color.red;
@@ -122,7 +127,7 @@ public class E_M_o_W : MonoBehaviour
     {
         spriteRenderer.material.color = origColor;
     }
-
+    //-------------------------------------------------------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //taking damage

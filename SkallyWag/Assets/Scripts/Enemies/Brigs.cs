@@ -15,6 +15,8 @@ public class Brigs : MonoBehaviour
 
     void Start()
     {
+        //get the sprite renderer component from this enemy
+        //set origcolor to the original colour
         spriteRenderer = GetComponent<SpriteRenderer>();
         origColor = spriteRenderer.material.color;
     }
@@ -22,6 +24,7 @@ public class Brigs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //when destroyed pick a power up to drop at random
         if(health == 0)
         {
             spawnrate = Random.Range(1, 100);
@@ -41,6 +44,8 @@ public class Brigs : MonoBehaviour
         }
     }
 
+    //---------------------------------------------------------------
+    //changing colour when hit
     void HitStart()
     {
         spriteRenderer.material.color = Color.red;
@@ -50,6 +55,7 @@ public class Brigs : MonoBehaviour
     {
         spriteRenderer.material.color = origColor;
     }
+    //---------------------------------------------------------------
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

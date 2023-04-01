@@ -18,12 +18,15 @@ public class M_o_W_Canons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //firerate counting down to next cannon ball spawn
         fireRate -= Time.deltaTime;
         Fire();
     }
 
     public void Fire()
     {
+        //Spawn the cannon ball when the firerate timer hits 0
+        //then set the firerate to 1.25f
         if(fireRate <= 0)
         {
 #pragma warning disable CS0618 // Type or member is obsolete

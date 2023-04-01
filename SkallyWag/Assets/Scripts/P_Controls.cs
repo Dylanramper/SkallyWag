@@ -49,6 +49,8 @@ public class P_Controls : MonoBehaviour
         hit = false;
         onFire = false;
 
+        //get sprite renderer from player
+        //set origcolor to original colour
         spriteRenderer = GetComponent<SpriteRenderer>();
         origColor = spriteRenderer.material.color;
     }
@@ -64,7 +66,7 @@ public class P_Controls : MonoBehaviour
         //this is controlling the life counters on the top left corner of the screen
         transform.position = cameraPos;
        
-
+        //player health cannot go above 8hp
         if(gm.playerHealth >= 8)
         {
             gm.playerHealth = 8;
@@ -108,6 +110,7 @@ public class P_Controls : MonoBehaviour
             onFire = false;
         }
 
+        //when hit with fireball player will be on fire and get delt .5 damage
         if (onFire == true)
         {
             gm.playerHealth -= .50f * Time.deltaTime;
@@ -146,7 +149,8 @@ public class P_Controls : MonoBehaviour
             hitFlashStart();
         }
     }
-
+    //---------------------------------------------------------------
+    //change colour when hit
     void hitFlashStart()
     {
         spriteRenderer.material.color = Color.red;
@@ -157,7 +161,7 @@ public class P_Controls : MonoBehaviour
     {
         spriteRenderer.material.color = origColor;
     }
-
+    //---------------------------------------------------------------
 
     //Damage to player from enemies
     private void OnTriggerEnter2D(Collider2D collision)

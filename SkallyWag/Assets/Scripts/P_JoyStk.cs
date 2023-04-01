@@ -6,7 +6,7 @@ public class P_JoyStk : MonoBehaviour
 {
     public P_Controls controls;
     public Transform player;
-    public float speed = 5.0f;
+    public float speed = 7.0f;
     private bool touchStart = false;
     private Vector2 pointA;
     private Vector2 pointB;
@@ -39,7 +39,7 @@ public class P_JoyStk : MonoBehaviour
         {
             speed = 4.0f;
         }
-        else { speed = 5.0f; }
+        else { speed = 7.0f; }
     }
     private void FixedUpdate()
     {
