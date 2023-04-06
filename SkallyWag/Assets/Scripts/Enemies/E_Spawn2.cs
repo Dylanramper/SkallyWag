@@ -8,6 +8,7 @@ public class E_Spawn2 : MonoBehaviour
     public GameObject RowB, Brig, Gal;
     public int spawnNum;
     float spawnPointX;
+    float spawnPointTwo;
     float spawnPointY = 9.5f;
 
     //Variables for timers
@@ -16,15 +17,10 @@ public class E_Spawn2 : MonoBehaviour
     public float gameTimer = 0f;
 
     //Variables for setting screen bounds
-    private Vector2 screenBounds;
-    public Camera mainCam;
 
     private void Start()
     {
         secondTimer = 3.0f;
-
-        //Set screen bounds to the main camera
-        screenBounds = mainCam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCam.transform.position.z));
     }
 
 
@@ -39,9 +35,10 @@ public class E_Spawn2 : MonoBehaviour
             SpawnEnemies();
             timer = secondTimer;
             spawnNum = Random.Range(0, 3);
-            spawnPointX = Random.Range(-3.44f, 3.48f);
+            //spawnPointX = Random.Range(-3.44f, 3.48f);
+            spawnPointX = Random.Range(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
+            spawnPointTwo = Random.Range(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
         }
-
         Timers();
     }
 
@@ -53,7 +50,7 @@ public class E_Spawn2 : MonoBehaviour
             Instantiate(RowB, new Vector2(spawnPointX, spawnPointY), Quaternion.identity);
             if(gameTimer >= 40)
             {
-                Instantiate(RowB, new Vector2(Random.Range(-3.44f, 3.48f), spawnPointY), Quaternion.identity);
+                Instantiate(RowB, new Vector2(spawnPointTwo, spawnPointY), Quaternion.identity);
             }
         }
         else if(spawnNum == 1)
@@ -61,7 +58,7 @@ public class E_Spawn2 : MonoBehaviour
             Instantiate(Brig, new Vector2(spawnPointX, spawnPointY), Quaternion.identity);
             if (gameTimer >= 40)
             {
-                Instantiate(RowB, new Vector2(Random.Range(-3.44f, 3.48f), spawnPointY), Quaternion.identity);
+                Instantiate(RowB, new Vector2(spawnPointTwo, spawnPointY), Quaternion.identity);
             }
         }
         else if(spawnNum == 2)
@@ -69,7 +66,7 @@ public class E_Spawn2 : MonoBehaviour
             Instantiate(Gal, new Vector2(spawnPointX, spawnPointY), Quaternion.identity);
             if (gameTimer >= 40)
             {
-                Instantiate(RowB, new Vector2(Random.Range(-3.44f, 3.48f), spawnPointY), Quaternion.identity);
+                Instantiate(RowB, new Vector2(spawnPointTwo, spawnPointY), Quaternion.identity);
             }
         }
     }

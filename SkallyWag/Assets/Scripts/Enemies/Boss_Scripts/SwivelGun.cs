@@ -22,7 +22,7 @@ public class SwivelGun : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         fireRate = .5f;
         pauseFire = 2f;
-        firingTime = 2f;
+        firingTime = .75f;
         ableToShoot = false;
     }
 
@@ -50,7 +50,7 @@ public class SwivelGun : MonoBehaviour
         {
             pauseFire = pauseFire - 1 * Time.deltaTime;
             fireRate = .5f;
-            firingTime = 2f;
+            firingTime = .75f;
         }
         if (pauseFire <= 0f)
         {

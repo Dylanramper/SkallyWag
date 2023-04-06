@@ -5,7 +5,8 @@ using UnityEngine;
 public class M_o_W_Canons : MonoBehaviour
 {
     public GameObject bullet;
-    public float fireRate = 0.2f;
+    float fireRate;
+    public float fireRateID;
 
     public GameObject bp1;
     public GameObject bp2;
@@ -32,7 +33,7 @@ public class M_o_W_Canons : MonoBehaviour
 #pragma warning disable CS0618 // Type or member is obsolete
             Instantiate(bullet, new Vector2(transform.position.x, transform.position.y), Quaternion.EulerRotation(new Vector3(0, 0, transform.rotation.z)));
 #pragma warning restore CS0618 // Type or member is obsolete
-            fireRate = 1.25f;
+            fireRate = fireRateID;
         }
     }
 }

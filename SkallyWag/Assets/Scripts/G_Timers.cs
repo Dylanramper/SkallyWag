@@ -14,7 +14,7 @@ public class G_Timers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 3f;
+        timer = 60f;
         boss.SetActive(false);
     }
 
