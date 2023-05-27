@@ -5,15 +5,12 @@ using UnityEngine;
 public class B_Swivel : MonoBehaviour
 {
     public GameObject player;
-    float bulletSpeed;
     Rigidbody2D rb;
 
     private void Awake()
     {
-        //set the bulletspeed to 1
         //find the player in the scene and parent it to the variable 'player'
         //find the rigidbody2D component in this cannonball
-        bulletSpeed = 1f;
         player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody2D>();
     }
