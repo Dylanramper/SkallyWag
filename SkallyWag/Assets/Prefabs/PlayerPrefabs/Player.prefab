@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 2424091210468308589}
   - component: {fileID: 2424091210468308595}
   - component: {fileID: 2424091210468308594}
-  - component: {fileID: 8422777896466101049}
+  - component: {fileID: 3849865768476487263}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -241,7 +241,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0490613, y: 2.1855412}
   m_EdgeRadius: 0
---- !u!50 &8422777896466101049
+--- !u!50 &3849865768476487263
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
