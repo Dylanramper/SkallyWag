@@ -1920,7 +1920,7 @@ Canvas:
   m_GameObject: {fileID: 1535702914}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1931,7 +1931,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &1535702918
 RectTransform:
@@ -2515,7 +2515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8f16dd1a50f9448b00c3c08717171c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1939339284
+--- !u!114 &1939339288
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2527,12 +2527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7392d90ab9abc342a3f633c79023930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1939339285}
---- !u!50 &1939339285 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 3849865768476487263, guid: 2df57d03b4cd64449a1c60acb33abc2b, type: 3}
-  m_PrefabInstance: {fileID: 2424091210156854883}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2061199657
 GameObject:
   m_ObjectHideFlags: 0

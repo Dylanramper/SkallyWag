@@ -4,29 +4,26 @@ using UnityEngine;
 
 public class P_Drag : MonoBehaviour
 {
+    private Vector3 dir;
     private Vector3 touchPos;
-    public Rigidbody2D rb;
-    private Vector3 direction;
-    private float moveSpeed = 10f;
-
-    private void Start()
+    float moveSpeed = .02f;
+    // Start is called before the first frame update
+    void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        if(Input.touchCount > 0)
+        if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            touchPos = Camera.main.ScreenToViewportPoint(touch.position);
+            touchPos = Camera.main.ScreenToWorldPoint(touch.position);
             touchPos.z = 0;
-            direction = (touchPos - transform.position);
-            rb.velocity = new Vector2(direction.x, direction.y) * moveSpeed;
-
-            if(touch.phase == TouchPhase.Ended)
-                rb.velocity = Vector2.zero;
-            
+            dir = (touchPos - transform.position);
+            transform.Translate(new Vector3(dir.x, dir.y, 0) * moveSpeed);
+            Debug.Log("Touch");
         }
     }
 }
