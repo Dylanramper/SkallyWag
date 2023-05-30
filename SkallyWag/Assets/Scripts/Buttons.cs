@@ -8,6 +8,12 @@ public class Buttons : MonoBehaviour
 
     public GameObject GameMenu;
     public GameObject PauseMenu;
+    public GameObject SettingsMenu;
+
+    public GameObject Joystk;
+    public GameObject Drag;
+
+    public bool toggleCon;
 
     //Pause button
     public void pauseMenu()
@@ -30,5 +36,18 @@ public class Buttons : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(sceneBuildIndex: 0);
+    }
+    
+    public void DragCon()
+    {
+        if (toggleCon == false)
+        {
+            Drag.GetComponent<P_Drag>().enabled = true;
+            Joystk.GetComponent<P_JoyStk>().enabled = false;
+        }
+        else if(toggleCon == true){
+            Drag.GetComponent<P_Drag>().enabled = false;
+            Joystk.GetComponent<P_JoyStk>().enabled = true;
+        }
     }
 }

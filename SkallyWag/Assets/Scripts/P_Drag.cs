@@ -23,7 +23,6 @@ public class P_Drag : MonoBehaviour
             touchPos.z = 0;
             dir = (touchPos - transform.position);
             transform.Translate(new Vector3(dir.x, dir.y, 0) * moveSpeed);
-            Debug.Log("Touch");
         }
     }
 }
