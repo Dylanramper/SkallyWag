@@ -13,7 +13,7 @@ public class Buttons : MonoBehaviour
     public GameObject Joystk;
     public GameObject Drag;
 
-    public bool toggleCon;
+    public GameObject joyone, joytwo;
 
     //Pause button
     public void pauseMenu()
@@ -37,17 +37,35 @@ public class Buttons : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(sceneBuildIndex: 0);
     }
-    
-    public void DragCon()
+
+    //Settings button
+    public void Settings()
     {
-        if (toggleCon == false)
+        PauseMenu.SetActive(false);
+        SettingsMenu.SetActive(true);
+    }
+
+    //Back from settings menu
+    public void Backfromsettings()
+    {
+        SettingsMenu.SetActive(false);
+        PauseMenu.SetActive(true);
+    }
+
+    public void DragCon(bool toggleCon)
+    {
+        if (toggleCon)
         {
-            Drag.GetComponent<P_Drag>().enabled = true;
-            Joystk.GetComponent<P_JoyStk>().enabled = false;
-        }
-        else if(toggleCon == true){
             Drag.GetComponent<P_Drag>().enabled = false;
             Joystk.GetComponent<P_JoyStk>().enabled = true;
+            joyone.SetActive(true);
+            joytwo.SetActive(true);
         }
+        else{
+            Drag.GetComponent<P_Drag>().enabled = true;
+            Joystk.GetComponent<P_JoyStk>().enabled = false;
+            joyone.SetActive(false);
+            joytwo.SetActive(false);
+        } 
     }
 }

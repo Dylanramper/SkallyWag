@@ -7,11 +7,6 @@ public class P_Drag : MonoBehaviour
     private Vector3 dir;
     private Vector3 touchPos;
     float moveSpeed = .02f;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
