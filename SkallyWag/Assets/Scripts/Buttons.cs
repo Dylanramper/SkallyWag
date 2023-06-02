@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
-
     public GameObject GameMenu;
     public GameObject PauseMenu;
     public GameObject SettingsMenu;
@@ -21,7 +20,7 @@ public class Buttons : MonoBehaviour
         Time.timeScale = 0;
         GameMenu.SetActive(false);
         PauseMenu.SetActive(true);
-    } 
+    }
 
     //Resume button
     public void ResumeGame()
@@ -66,6 +65,6 @@ public class Buttons : MonoBehaviour
             Joystk.GetComponent<P_JoyStk>().enabled = false;
             joyone.SetActive(false);
             joytwo.SetActive(false);
-        } 
+        }
     }
 }
