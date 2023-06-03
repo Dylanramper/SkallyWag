@@ -14,12 +14,15 @@ public class Buttons : MonoBehaviour
 
     public GameObject joyone, joytwo;
 
+    public bool paused = false;
+
     //Pause button
     public void pauseMenu()
     {
         Time.timeScale = 0;
         GameMenu.SetActive(false);
         PauseMenu.SetActive(true);
+        paused = true;
     }
 
     //Resume button
@@ -28,6 +31,7 @@ public class Buttons : MonoBehaviour
         PauseMenu.SetActive(false);
         GameMenu.SetActive(true);
         Time.timeScale = 1;
+        paused = false;
     }
 
     //Quit button
@@ -35,6 +39,7 @@ public class Buttons : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(sceneBuildIndex: 0);
+        paused = false;
     }
 
     //Settings button

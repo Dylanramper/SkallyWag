@@ -14,10 +14,12 @@ public class P_JoyStk : MonoBehaviour
     public Transform circle;
     public Transform outerCircle;
 
+    public Buttons buttons;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && buttons.paused == false)
         {
             pointA = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z));
 

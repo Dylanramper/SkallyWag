@@ -1025,6 +1025,7 @@ MonoBehaviour:
   speed: 5
   circle: {fileID: 1453513840}
   outerCircle: {fileID: 1799326523}
+  buttons: {fileID: 1702448757}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2799,6 +2800,7 @@ MonoBehaviour:
   Drag: {fileID: 409422640}
   joyone: {fileID: 1799326521}
   joytwo: {fileID: 1453513838}
+  paused: 0
 --- !u!1 &1769531792
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,6 +3209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7392d90ab9abc342a3f633c79023930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttons: {fileID: 1702448757}
 --- !u!1 &2028870788
 GameObject:
   m_ObjectHideFlags: 0
