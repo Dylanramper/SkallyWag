@@ -14,7 +14,14 @@ public class Buttons : MonoBehaviour
 
     public GameObject joyone, joytwo;
 
+    public int controls;
+
     public bool paused = false;
+
+    private void Start()
+    {
+        controls = PlayerPrefs.GetInt("controls");
+    }
 
     //Pause button
     public void pauseMenu()
@@ -58,18 +65,20 @@ public class Buttons : MonoBehaviour
 
     public void DragCon(bool toggleCon)
     {
-        if (toggleCon)
+        if (toggleCon && controls == 1)
         {
             Drag.GetComponent<P_Drag>().enabled = false;
             Joystk.GetComponent<P_JoyStk>().enabled = true;
             joyone.SetActive(true);
             joytwo.SetActive(true);
+            PlayerPrefs.SetInt("controls", 0);
         }
-        else{
+        else if (!toggleCon && controls == 0){
             Drag.GetComponent<P_Drag>().enabled = true;
             Joystk.GetComponent<P_JoyStk>().enabled = false;
             joyone.SetActive(false);
             joytwo.SetActive(false);
+            PlayerPrefs.SetInt("controls", 1);
         }
     }
 }

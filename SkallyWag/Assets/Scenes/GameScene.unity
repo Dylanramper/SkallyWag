@@ -2800,6 +2800,7 @@ MonoBehaviour:
   Drag: {fileID: 409422640}
   joyone: {fileID: 1799326521}
   joytwo: {fileID: 1453513838}
+  controls: 0
   paused: 0
 --- !u!1 &1769531792
 GameObject:
