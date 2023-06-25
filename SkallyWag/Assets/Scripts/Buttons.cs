@@ -71,12 +71,14 @@ public class Buttons : MonoBehaviour
             Joystk.GetComponent<P_JoyStk>().enabled = true;
             joyone.SetActive(true);
             joytwo.SetActive(true);
+            PlayerPrefs.SetInt("Controls", controls);
         }
         else if (!toggleCon){
             Drag.GetComponent<P_Drag>().enabled = true;
             Joystk.GetComponent<P_JoyStk>().enabled = false;
             joyone.SetActive(false);
             joytwo.SetActive(false);
+            PlayerPrefs.SetInt("Controls", controls);
         }
     }
 }
