@@ -14,10 +14,8 @@ public class P_BP : MonoBehaviour
     public bool fireRateActive = false;
     public float fireRateTimer;
 
-    private void Start()
-    {
-
-    }
+    public AudioSource audiosource;
+    public AudioClip fire1;
 
     // Update is called once per frame
     void Update()
@@ -50,6 +48,9 @@ public class P_BP : MonoBehaviour
 #pragma warning disable CS0618 // Type or member is obsolete
             Instantiate(bullet, new Vector2(transform.position.x, transform.position.y), Quaternion.EulerRotation(new Vector3(0,0, transform.rotation.z)));
 #pragma warning restore CS0618 // Type or member is obsolete
+
+            audiosource.clip = fire1;
+            audiosource.Play();
         }
     }
 }

@@ -34,6 +34,9 @@ public class P_Controls : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Color origColor;
     float hitTime = 1f;
+    public AudioSource audioSource;
+    public AudioClip hit1, hit2, dead;
+    int hitsound;
 
 
     void Start()
@@ -75,6 +78,8 @@ public class P_Controls : MonoBehaviour
         //If playerHealth is <= 0 Run Death() function
         if(gm.playerHealth <= 0)
         {
+            audioSource.clip = dead;
+            audioSource.Play();
             gm.Death();
         }
 
@@ -166,25 +171,39 @@ public class P_Controls : MonoBehaviour
     //Damage to player from enemies
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        hitsound = Random.Range(1, 2);
+        if(hitsound == 1)
+        {
+            audioSource.clip = hit1;
+        }
+        if (hitsound == 2)
+        {
+            audioSource.clip = hit2;
+        }
+
         if (collision.gameObject.tag == "RowB" || collision.gameObject.tag == "EnemyBull" || collision.gameObject.tag == "Manowar" || collision.gameObject.tag == "SwivelBull")
         {
             gm.playerHealth -= 1;
             hit = true;
+            audioSource.Play();
         }
         else if(collision.gameObject.tag == "Brig")
         {
             gm.playerHealth -= 2;
             hit = true;
+            audioSource.Play();
         }
         else if(collision.gameObject.tag == "Gal")
         {
             gm.playerHealth -= 3;
             hit = true;
+            audioSource.Play();
         }
         if (collision.gameObject.tag == "Flame")
         {
             hit = true;
             onFire = true;
+            audioSource.Play();
         }
         //collision for power-ups
         if (collision.gameObject.tag == "Life")
